@@ -46,7 +46,7 @@ angular.module('alt', [
       url: "/login",
       templateUrl: "js/login/login.html",
       controller: "LoginCtrl"
-  })
+    })
 
     .state('tab', {
       url: '/tab',
