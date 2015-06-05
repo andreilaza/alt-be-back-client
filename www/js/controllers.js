@@ -25,4 +25,9 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+})
+.controller('LoginCtrl', function($scope, $ionicPlatform) {
+    $ionicPlatform.ready(function() {
+      $cordovaPlugin.someFunction().then(success, error);
+    });
 });
