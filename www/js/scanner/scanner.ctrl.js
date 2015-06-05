@@ -1,7 +1,5 @@
-angular.module('starter.controllers')
+angular.module('alt.scanner', [])
   .controller('ScannerCtrl', function ($scope, $cordovaBarcodeScanner, $ionicPopup) {
-
-
 
     $scope.scanBarcode = function () {
       $cordovaBarcodeScanner.scan().then(function(imageData) {
