@@ -28,16 +28,15 @@
     <script src="js/scanner/scanner.ctrl.js"></script>
     <script src="js/ranking/ranking.ctrl.js"></script>
     <script src="js/profile/profile.ctrl.js"></script>
+    <script src="js/tour/tour.ctrl.js"></script>
+
+    <script src="js/common/services/auth.js"></script>
   </head>
 
   <body ng-app="alt">
-    <!--
-      The nav bar that will be updated as we navigate between views.
-    -->
-    <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
-    </ion-nav-bar>
+    
+    <ion-nav-view name="common-navbar"></ion-nav-view>
+
     <!--
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also

@@ -9,6 +9,10 @@ angular.module('alt', [
     'ionic', 
     'ngCordova',
     'ngStorage',
+
+    'common.services.auth',
+
+    'alt.tour',
     'alt.tabs',
     'alt.login',
     'alt.newsfeed',
@@ -42,27 +46,33 @@ angular.module('alt', [
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('login', {
-      url: "/login",
-      templateUrl: "js/login/login.html",
-      controller: "LoginCtrl"
+  .state('login', {
+    url: "/login",
+    templateUrl: "js/login/login.html",
+    controller: "LoginCtrl"
   })
 
-    .state('tab', {
-      url: '/tab',
-      //abstract: true,
-      templateUrl: 'js/tabs/tabs.html',
-      controller: 'TabsCtrl'
-    })
-  .state('tab.newsfeed', {
-    url: '/newsfeed',
-    views: {
-      'tab-newsfeed': {
-        templateUrl: 'js/newsfeed/newsfeed.html',
-        controller: 'NewsfeedCtrl'
-      }
-    }
+  .state('tour', {
+    url:'/tour/:step',
+    templateUrl: 'js/tour/tour.html',
+    controller: 'TourCtrl'
   })
+
+  .state('tab', {
+    url: '/tab',
+    abstract: true,
+    templateUrl: 'js/tabs/tabs.html',
+    controller: 'TabsCtrl',    
+  })
+    .state('tab.newsfeed', {
+      url: '/newsfeed',
+      views: {
+        'tab-newsfeed': {
+          templateUrl: 'js/newsfeed/newsfeed.html',
+          controller: 'NewsfeedCtrl'
+        }
+      }
+    })
     .state('tab.events', {
       url: '/events',
       views: {
@@ -72,7 +82,7 @@ angular.module('alt', [
         }
       }
     })
-  .state('tab.scanner', {
+    .state('tab.scanner', {
       url: '/scanner',
       cache: false,
       views: {
