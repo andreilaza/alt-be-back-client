@@ -1,5 +1,23 @@
 <ion-view view-title="Events">
     <ion-content class="padding">
         <h1>Events</h1>
+        <div class="list card" ng-repeat="event in events">
+
+            <div class="item item-avatar">
+                <img ng-src="{{event.avatar}}">
+                <h2>{{event.title}}</h2>
+                <p>{{event.description}}</p>
+            </div>
+
+            <div class="item item-image">
+                <img ng-src="{{event.image}}">
+            </div>
+
+            <a class="item item-icon-left assertive" href="#" ng-click="attend($index)">
+                <i class="icon ion-music-note"></i>
+                Start listening
+            </a>
+
+        </div>
     </ion-content>
 </ion-view>

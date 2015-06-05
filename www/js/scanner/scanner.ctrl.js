@@ -1,15 +1,20 @@
 angular.module('alt.scanner', [])
-  .controller('ScannerCtrl', function ($scope, $cordovaBarcodeScanner, $ionicPopup) {
+  .controller('ScannerCtrl', function ($scope, $cordovaBarcodeScanner) {
+    $scope.loading = true;
 
-    $scope.scanBarcode = function () {
-      $cordovaBarcodeScanner.scan().then(function(imageData) {
+
+    $cordovaBarcodeScanner
+      .scan()
+      .then(function(imageData) {
+        $scope.loading = false;
         alert(imageData.text);
-        console.log('format', imageData.format);
 
       }, function(error) {
+        $scope.loading = false;
         console.log('error', error);
       });
-    }
+
+
 
 
   });

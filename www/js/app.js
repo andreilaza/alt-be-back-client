@@ -46,11 +46,11 @@ angular.module('alt', [
       url: "/login",
       templateUrl: "js/login/login.html",
       controller: "LoginCtrl"
-    })
+  })
 
     .state('tab', {
       url: '/tab',
-      abstract: true,
+      //abstract: true,
       templateUrl: 'js/tabs/tabs.html',
       controller: 'TabsCtrl'
     })
@@ -74,6 +74,7 @@ angular.module('alt', [
     })
   .state('tab.scanner', {
       url: '/scanner',
+      cache: false,
       views: {
         'tab-scanner': {
           templateUrl: 'js/scanner/scanner.html',

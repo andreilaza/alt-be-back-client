@@ -1,6 +1,5 @@
-<ion-view view-title="Scanner">
-    <ion-content class="padding">
-        <h1>Scan</h1>
-        <button class="button" ng-click="scanBarcode()">Scan</button>
+<ion-view view-title="Scanner" class="page scanner">
+    <ion-content class="padding content loading" ng-class="{'loading': loading}" ng-click="scan()">
+
     </ion-content>
 </ion-view>

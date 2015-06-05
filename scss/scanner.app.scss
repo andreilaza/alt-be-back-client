@@ -1,0 +1,8 @@
+.page.scanner {
+
+    .content {
+        &.loading {
+            background: url('../img/preloader.gif') center center no-repeat;
+        }
+    }
+}
