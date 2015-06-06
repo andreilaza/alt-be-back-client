@@ -25,7 +25,7 @@ angular.module('common.services.auth', [])
         // $state.go('newsfeed')
 
         // Redirect first time
-        // $state.go('tour', { step: first })
+        // $state.go('tour')
     }
 
     function error(error) {

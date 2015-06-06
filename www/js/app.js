@@ -55,7 +55,7 @@ angular.module('alt', [
   })
 
   .state('tour', {
-    url:'/tour/:step',
+    url:'/tour',
     templateUrl: 'js/tour/tour.html',
     controller: 'TourCtrl'
   })
