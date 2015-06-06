@@ -6,3 +6,38 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+.bar-header {
+    background: $pink;
+    color: #fff;
+    border: none;
+}
+.back-half-pink {
+    background: $halfPink;
+}
+ion-tabs .tabs {
+    padding-top: 0;
+    background: $darkPink;
+
+    .tab-item {
+        color: #fff;
+        opacity: 1;
+
+        .icon {
+            font-size: 24px;
+            line-height: 2.2;
+            height: 100%;
+        }
+
+    }
+    .tab-item.tab-item-active, .tab-item.activated {
+        color: #fff;
+        background: $pink;
+    }
+}
+.nav-bar-container {
+    .back-button {
+        color: #fff;
+        opacity: 0.7;
+    }
+}
+

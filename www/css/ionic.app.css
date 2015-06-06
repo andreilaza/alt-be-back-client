@@ -7701,6 +7701,32 @@ h5, .h5 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+.bar-header {
+  background: #db075e;
+  color: #fff;
+  border: none; }
+
+.back-half-pink {
+  background: #7E0435; }
+
+ion-tabs .tabs {
+  padding-top: 0;
+  background: #3e021b; }
+  ion-tabs .tabs .tab-item {
+    color: #fff;
+    opacity: 1; }
+    ion-tabs .tabs .tab-item .icon {
+      font-size: 24px;
+      line-height: 2.2;
+      height: 100%; }
+  ion-tabs .tabs .tab-item.tab-item-active, ion-tabs .tabs .tab-item.activated {
+    color: #fff;
+    background: #db075e; }
+
+.nav-bar-container .back-button {
+  color: #fff;
+  opacity: 0.7; }
+
 .button-pink {
   display: inline-block;
   background: #db075e;
