@@ -7677,3 +7677,18 @@ a.button {
 
 .page.scanner .content.loading {
   background: url('../img/preloader.gif') center center no-repeat; }
+
+.gold {
+  color: #FFD700; }
+
+.silver {
+  color: #C0C0C0; }
+
+.bronze {
+  color: #CD7F32; }
+
+.big-icon {
+  font-size: 96px; }
+
+.big-text {
+  font-size: 32px; }
