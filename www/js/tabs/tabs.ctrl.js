@@ -1,7 +1,8 @@
 angular.module('alt.tabs', [])
   .controller(
   'TabsCtrl',
-  function($scope, Auth) {
+  function($scope, $cordovaStatusbar, Auth) {
     //Auth.check();
+
     console.log('tabs');
   });

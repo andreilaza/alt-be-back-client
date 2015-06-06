@@ -11,41 +11,14 @@
 	</div>
 
     <div class="list">
-
-		<a class="item item-icon-left" href="#">
-		    <i class="icon ion-ribbon-a gold"></i>
-		    1. Claudiu Filip 1440 pts
+		<a class="item item-icon-left" href="#" ng-click="goToUser(user.id)" ng-repeat="user in users">
+		    <i class="icon ion-ribbon-a gold" ng-if="$index === 0"></i>
+            <i class="icon ion-ribbon-a silver" ng-if="$index === 1"></i>
+            <i class="icon ion-ribbon-a bronze" ng-if="$index === 2"></i>
+		    <span ng-if="$index < 3">{{$index + 1}}.</span>
+            {{user.name}}
+            <span ng-if="$index < 3">{{user.points}} pts</span>
 		    
 	  	</a>
-
-	  	<a class="item item-icon-left" href="#">
-		    <i class="icon ion-ribbon-a silver"></i>
-		    2. Andrei Laza 1300 pts
-	  	</a>
-
-	  	<a class="item item-icon-left" href="#">
-		    <i class="icon ion-ribbon-a bronze"></i>
-		    3. Bogdan Negrescu 1200 pts
-	  	</a>
-
-	  	<a class="item item-icon-left" href="#">
-		    Andrei Demian
-	  	</a>
-
-	  	<a class="item active item-icon-left" href="#">
-		    Alex Popa
-  		</a>
-
-  		<a class="item item-icon-left" href="#">
-		    Nicolae Olteanu
-  		</a>
-
-  		<a class="item item-icon-left" href="#">
-		    Razvan Stan
-  		</a>
-
-  		<a class="item item-icon-left" href="#">
-		    Lia Radoi
-  		</a>
 	</div>
 </ion-view>

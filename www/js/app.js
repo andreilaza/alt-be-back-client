@@ -120,24 +120,49 @@ angular.module('alt', [
           }
         }
       })
+
       .state('tab.ranking', {
-        url: '/ranking',
+        abstract: true,
         views: {
           'tab-ranking': {
-            templateUrl: 'js/ranking/ranking.html',
-            controller: 'RankingCtrl'
+            template: '<ion-nav-view animation="slide-left-right"></ion-nav-view>'
           }
         }
       })
+
+      .state('tab.ranking.list', {
+        url: '/ranking',
+        templateUrl: 'js/ranking/ranking.html',
+        controller: 'RankingCtrl'
+      })
+      .state('tab.ranking.user', {
+        url: '/ranking/:id',
+        templateUrl: 'js/user/user.html',
+        controller: 'UserCtrl'
+      })
+
+
       .state('tab.profile', {
-        url: '/profile',
+        abstract: true,
         views: {
           'tab-profile': {
-            templateUrl: 'js/profile/profile.html',
-            controller: 'ProfileCtrl'
+            template: '<ion-nav-view animation="slide-right-left"></ion-nav-view>'
           }
         }
+      })
+
+      .state('tab.profile.details', {
+        url: '/profile/:id',
+        templateUrl: 'js/profile/profile.html',
+        controller: 'ProfileCtrl'
+      })
+      .state('tab.profile.ranking', {
+        url: '/profile-ranking',
+        templateUrl: 'js/ranking/ranking.html',
+        controller: 'RankingCtrl'
       });
+
+
 
 
     // if none of the above states are matched, use this as the fallback

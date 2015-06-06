@@ -1,0 +1,17 @@
+.button-pink {
+    display: inline-block;
+    background: $pink;
+    font-size: 15px;
+    font-weight: 600;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    padding: 6px 15px;
+
+    &:hover, &:active, &.activated {
+        color: #fff;
+        background: $darkPink;
+    }
+}

@@ -1,0 +1,102 @@
+.section-tour {
+    .tour {
+        position: relative;
+        text-align: center;
+        height: 100%;
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+
+
+        @extend .statusbar-space;
+
+        .tour-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 55%;
+            height: 55%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+        }
+
+        header {
+            position: relative;
+            display: block;
+            width: 100%;
+            min-height: 40%;
+        }
+        article {
+            background: #fff;
+            height: 60%;
+            padding: 0 20px;
+
+        }
+        .title {
+            margin: 30px 0;
+        }
+    }
+    .tour-1 {
+        background-image: url('../img/tour-1.jpg');
+        .tour-icon {
+            background-image: url('../img/tour-1-icon.png');
+        }
+    }
+    .tour-2 {
+        background-image: url('../img/tour-2.jpg');
+        .tour-icon {
+            background-image: url('../img/tour-2-icon.png');
+        }
+    }
+    .tour-3 {
+        background-image: url('../img/tour-3.jpg');
+        .tour-icon {
+            background-image: url('../img/tour-3-icon.png');
+        }
+    }
+    .tour-4 {
+        background-image: url('../img/tour-4.jpg');
+        .tour-icon {
+            background-image: url('../img/tour-4-icon.png');
+            width: 80%;
+            height: 80%;
+        }
+        .cta-button {
+            margin: 20px 0;
+        }
+        .title {
+            margin-bottom: 0;
+        }
+
+        .icon-wrapper {
+            text-align: center;
+
+            &.even {
+                margin-top: 20px;
+            }
+        }
+
+        .icon {
+            color: $pink;
+            font-size: 20px;
+            display: block;
+            margin: 10px 0;
+        }
+    }
+
+    .slider-pager .slider-pager-page {
+        color: $grey;
+
+        &.active {
+            color: $pink;
+        }
+
+    }
+
+
+
+}
