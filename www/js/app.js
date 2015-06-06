@@ -13,6 +13,8 @@ angular.module('alt', [
     'common.services.auth',
 
     'alt.tour',
+    'alt.user',
+    'alt.event',
     'alt.tabs',
     'alt.login',
     'alt.newsfeed',
@@ -56,6 +58,17 @@ angular.module('alt', [
     url:'/tour/:step',
     templateUrl: 'js/tour/tour.html',
     controller: 'TourCtrl'
+  })
+
+  .state('user', {
+    url: '/user/:id',
+    templateUrl: 'js/user/user.html',
+    controller: 'UserCtrl'
+  })
+  .state('event', {
+    url: '/event/:id',
+    templateUrl: 'js/event/event.html',
+    controller: 'EventCtrl'
   })
 
   .state('tab', {

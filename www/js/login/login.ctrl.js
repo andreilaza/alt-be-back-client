@@ -2,7 +2,7 @@ angular.module('alt.login', [])
 	.controller(
 		'LoginCtrl', 
 		function($scope, $cordovaOauth, Auth) {
-		    
+
 	    $scope.facebookLogin = function() {
 	        $cordovaOauth.facebook(
 	        	"793189997454578", 

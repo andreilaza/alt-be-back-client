@@ -1,6 +1,7 @@
 angular.module('alt.profile', [])
   .controller(
   'ProfileCtrl',
-  function($scope) {
+  function($scope, Auth) {
+    //Auth.check();
 
   });

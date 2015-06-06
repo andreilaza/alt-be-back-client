@@ -1,13 +1,13 @@
-<ion-view view-title="Events">
+<ion-view view-title="Event">
     <ion-content class="padding">
-        <h1>Events</h1>
-        <div class="list card" ng-repeat="event in events">
+        <h1>Event</h1>
+        <div class="list card">
 
-            <a hre="#" class="item item-avatar" ng-click="goToEvent(event.id)">
+            <div class="item item-avatar">
                 <img ng-src="{{event.avatar}}">
                 <h2>{{event.title}}</h2>
                 <p>{{event.description}}</p>
-            </a>
+            </div>
 
             <div class="item item-image">
                 <img ng-src="{{event.image}}">

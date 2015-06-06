@@ -1,6 +1,7 @@
 angular.module('alt.ranking', [])
   .controller(
   'RankingCtrl',
-  function($scope) {
+  function($scope, Auth) {
+    //Auth.check();
 
   });

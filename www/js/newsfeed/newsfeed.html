@@ -1,5 +1,19 @@
 <ion-view view-title="Feeds">
     <ion-content class="padding">
         <h1>Feeds</h1>
+        <div class="list card" ng-repeat="user in users">
+
+            <a class="item item-avatar" ng-click="goToUser(user.id)">
+                <img ng-src="{{user.avatar}}">
+                <h2>{{user.name}}</h2>
+                <p>{{user.description}}</p>
+            </a>
+
+            <a class="item item-icon-left assertive" href="#" ng-click="goToEvent(user.eventId)">
+                <i class="icon ion-calendar"></i>
+                See Event
+            </a>
+
+        </div>
     </ion-content>
 </ion-view>
