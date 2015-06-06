@@ -1,0 +1,55 @@
+.section-login {
+    background: url('../img/homescreen.jpg') center top no-repeat;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    text-align: center;
+    height: 100%;
+
+    .logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 70%;
+        height: 70%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        background: url('../img/logo.svg') center center no-repeat;
+
+        background-size: auto 100%;
+    }
+
+    header {
+        position: relative;
+        display: block;
+        width: 100%;
+        min-height: 40%;
+    }
+    article {
+        height: 40%;
+        padding: 0 20px;
+
+        .button-pink {
+            display: block;
+            width: 100%;
+        }
+    }
+    footer {
+        text-align: center;
+        height: 20%;
+        opacity: 0.3;
+        .text {
+            margin: 0;
+        }
+
+        .logo-alt {
+            position: relative;
+            display: inline-block;
+            width: 70%;
+            height: 70%;
+            background: url('../img/logo-alt.svg') center center no-repeat;
+            background-size: auto 100%;
+        }
+    }
+}

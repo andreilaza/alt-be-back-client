@@ -1,7 +1,33 @@
-<ion-content class="padding">
-	<button ng-click="facebookLogin()" class="button button-block button-balanced">Facebook</button>
-	<button ng-click="googleLogin()" class="button button-block button-balanced">Google</button>
-	<button ui-sref="tour({ step: 'first' })" class="button button-block button-balanced">Tour</button>
-	<button ui-sref="tab.newsfeed.list" class="button button-block button-balanced">Skip</button>
-</ion-content>
+<section class="section section-login statusbar-space">
+
+    <header>
+        <div class="logo"></div>
+    </header>
+    <article>
+        <div class="row">
+            <h5 class="col">Use <b>Alt Be Back</b> with your</h5>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button ng-click="facebookLogin()" class="button button-pink">
+                    <i class="icon ion-social-facebook"></i>
+                </button>
+            </div>
+            <div class="col">
+                <button ng-click="googleLogin()" class="button button-pink">
+                    <i class="icon ion-social-google"></i>
+                </button>
+            </div>
+        </div>
+
+        <a ui-sref="tour({ step: 'first' })" class="">Tour</a>
+        <a ui-sref="tab.newsfeed.list" class="">Skip</a>
+    </article>
+    <footer>
+        <p class="text">Powered by</p>
+        <div class="logo-alt"></div>
+    </footer>
+
+</section>
+
 
