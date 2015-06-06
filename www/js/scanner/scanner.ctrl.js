@@ -3,6 +3,7 @@ angular.module('alt.scanner', [])
     //Auth.check();
     $scope.loading = true;
 
+
   try {
     $cordovaBarcodeScanner
       .scan()

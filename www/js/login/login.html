@@ -1,7 +1,7 @@
 <ion-content class="padding">
 	<button ng-click="facebookLogin()" class="button button-block button-balanced">Facebook</button>
 	<button ng-click="googleLogin()" class="button button-block button-balanced">Google</button>
-	<button ui-sref="tour" class="button button-block button-balanced">Tour</button>
-	<button ui-sref="tab.newsfeed" class="button button-block button-balanced">Skip</button>
+	<button ui-sref="tour({ step: 'first' })" class="button button-block button-balanced">Tour</button>
+	<button ui-sref="tab.newsfeed.list" class="button button-block button-balanced">Skip</button>
 </ion-content>
 

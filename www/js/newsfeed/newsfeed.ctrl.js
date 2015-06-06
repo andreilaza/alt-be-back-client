@@ -1,7 +1,7 @@
 angular.module('alt.newsfeed', [])
   .controller(
   'NewsfeedCtrl',
-  function($scope, $state, Auth) {
+  function ($scope, $state, Auth) {
     //Auth.check();
     $scope.users = [
       {
@@ -9,57 +9,58 @@ angular.module('alt.newsfeed', [])
         name: 'Elvis Presley',
         avatar: 'http://lorempixel.com/g/50/50/',
         action: 'Drinking at the bar',
-        actionId: 2
+        eventId: 2
       },
       {
         id: 1,
         name: 'Elvis Presley',
         avatar: 'http://lorempixel.com/g/50/50/',
         action: 'Drinking at the bar',
-        actionId: 2
+        eventId: 2
       },
       {
         id: 1,
         name: 'Elvis Presley',
         avatar: 'http://lorempixel.com/g/50/50/',
         action: 'Drinking at the bar',
-        actionId: 2
+        eventId: 2
       },
       {
         id: 1,
         name: 'Elvis Presley',
         avatar: 'http://lorempixel.com/g/50/50/',
         action: 'Drinking at the bar',
-        actionId: 2
+        eventId: 2
       },
       {
         id: 1,
         name: 'Elvis Presley',
         avatar: 'http://lorempixel.com/g/50/50/',
         action: 'Drinking at the bar',
-        actionId: 2
+        eventId: 2
       },
       {
         id: 1,
         name: 'Elvis Presley',
         avatar: 'http://lorempixel.com/g/50/50/',
         action: 'Drinking at the bar',
-        actionId: 2
+        eventId: 2
       },
       {
         id: 1,
         name: 'Elvis Presley',
         avatar: 'http://lorempixel.com/g/50/50/',
         action: 'Drinking at the bar',
-        actionId: 2
+        eventId: 2
       }
     ];
 
     $scope.goToEvent = function (id) {
-      $state.go('event', {id: id});
+
+      $state.go('tab.newsfeed.event', {id: id});
     };
 
     $scope.goToUser = function (id) {
-      $state.go('user', {id: id});
+      $state.go('tab.newsfeed.user', {id: id});
     };
   });

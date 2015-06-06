@@ -59,7 +59,7 @@ angular.module('alt.events', [])
 
     };
     $scope.goToEvent = function (id) {
-      $state.go('event', {id: id});
+      $state.go('tab.events.details', {id: id});
     };
 
   });
