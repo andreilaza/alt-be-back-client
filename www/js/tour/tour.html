@@ -1,4 +1,4 @@
-<ion-slide-box on-slide-changed="slideHasChanged($index)">
+<ion-slide-box>
   <ion-slide>
     <div class="box blue"><h1>FIRST</h1></div>
   </ion-slide>
@@ -9,6 +9,9 @@
     <div class="box pink"><h1>THIRD</h1></div>
   </ion-slide>
   <ion-slide>
-    <div class="box pink"><h1>FORTH</h1></div>
+    <div class="box pink">
+      <h1>FORTH</h1>
+      <button ui-sref="tab.newsfeed" class="button button-block button-balanced">Got It!</button>
+    </div>
   </ion-slide>
 </ion-slide-box>
