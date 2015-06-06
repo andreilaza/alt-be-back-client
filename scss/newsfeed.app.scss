@@ -1,0 +1,27 @@
+.section-newsfeed {
+    .item-avatar {
+        border-color: #eee;
+
+        .event-link, .title, .action {
+            font-size: 13px;
+            color: #3d3d3d;
+        }
+
+        .action-date {
+            color: #a6a6a6;
+        }
+        .event-link {
+            position: relative;
+            top: 5px;
+            color: $pink;
+            font-weight: 600;
+
+            .icon {
+                position: relative;
+                top: -2px;
+                font-size: 20px;
+                vertical-align: middle;
+            }
+        }
+    }
+}

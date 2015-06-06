@@ -6,6 +6,9 @@
   },
   "dependencies": {
     "ngCordova": "~0.1.17-alpha",
-    "ngstorage": "0.3.4"
+    "ngstorage": "0.3.4",
+    "moment": "~2.10.3",
+    "angular-resource": "~1.4.0",
+    "lodash": "~3.9.3"
   }
 }

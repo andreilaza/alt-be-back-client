@@ -1,21 +1,31 @@
-<ion-view view-title="Feeds">
-    <ion-content class="padding">
-        <h1>Feeds</h1>
-        <div class="list card" ng-repeat="user in users">
+<ion-view view-title="Feeds" class="section section-newsfeed">
 
-            <a class="item item-avatar" ng-click="goToUser(user.id)">
-                <img ng-src="{{user.avatar}}">
-                <h2>{{user.name}}</h2>
-                <p>{{user.description}}</p>
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon icon-hamburger"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-icon icon icon-plus" ng-click="openModal()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <div class="item item-avatar"  ng-repeat="feed in feeds |  filter: categoryType">
+            <img ng-src="{{feed.user.avatar}}">
+            <a ng-click="goToUser(feed.user.id)" class="title">
+                <b>{{feed.user.name}}</b>
+                <span class="action-label" ng-if="feed.action.type !== 'event'">{{feed.action.label}}</span>
+                <span class="action-label" ng-if="feed.action.type === 'event'">is attending</span>
             </a>
-
-            <a class="item item-icon-left assertive" ng-click="goToEvent(user.eventId)">
-                <i class="icon ion-calendar"></i>
-                See Event
+            <p class="action">
+                <span class="action-input" ng-if="feed.action.type !== 'event'">{{feed.action.input}}</span>
+                <span class="action-input" ng-if="feed.action.type === 'event'">{{feed.action.title}}</span>
+                <span class="action-date">- {{feed.date | timeDifference}}h ago</span>
+            </p>
+            <a class="event-link" ng-click="goToEvent(feed.action.id)" ng-if="feed.action.type === 'event'">
+                <i class="icon icon-event_details"></i> See Event Details
             </a>
-
         </div>
 
     </ion-content>
-</ion-view>
 
+</ion-view>

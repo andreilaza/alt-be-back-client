@@ -1,0 +1,38 @@
+.comments {
+    font-size: 13px;
+
+    .item-avatar {
+
+        padding-right: 0;
+        padding-left: 60px;
+        font-size: 13px;
+        border: none;
+        border-bottom: solid 2px #eee;
+
+
+
+
+        img {
+            left: 5px;
+        }
+        .comment-date {
+            color: #a6a6a6;
+        }
+        .comment-text {
+            margin-bottom: 2px;
+            overflow: visible !important;
+            white-space: normal !important;
+            font-size: 13px;
+            line-height: 1.3 !important;
+        }
+    }
+    .item-input-inset {
+        background: #CFCFCF;
+        .item-input-wrapper {
+            background: #fff;
+        }
+        input {
+            padding: 19px 5px;
+        }
+    }
+}

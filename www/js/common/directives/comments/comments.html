@@ -1,0 +1,32 @@
+
+
+<div class="list card comments no-padding">
+    <div class="row">
+        <div class="col">
+
+                <p><b>Members Say</b></p>
+                <p>{{event.description}}</p>
+                <div class="item item-avatar"  ng-repeat="comment in comments">
+                    <img ng-src="{{comment.user.avatar}}">
+                    <a class="comment-title" ng-click="goToUser(comment.user.id)">
+                        <b>{{comment.user.name}}</b>
+                        <span class="comment-date">- {{comment.date | timeDifference}}h ago</span>
+                        <p class="comment-text">
+                            {{comment.message}}
+                        </p>
+                    </a>
+                </div>
+
+        </div>
+    </div>
+
+            <div class=" item-input-inset">
+                <label class="item-input-wrapper">
+                    <input type="text" placeholder="Say something nice...">
+                </label>
+                <button class="button button-pink button-small">
+                    Send
+                </button>
+            </div>
+
+</div>

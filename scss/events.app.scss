@@ -1,0 +1,64 @@
+.section-events, .section-event {
+    background: #eee;
+
+    .card {
+        box-shadow: none;
+        font-size: 13px;
+        border: none;
+        border-radius: 0;
+        margin: 5px 0 10px 0;
+
+
+        .title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+        .subtitle {
+            margin-bottom: 0;
+        }
+        .icon-time, .icon-location {
+            font-size: 30px;
+            margin-left: -8px;
+            vertical-align: middle;
+            color: #a6a6a6;
+        }
+        .attend-link {
+            position: relative;
+            color: $pink;
+
+            &:before {
+                content: '';
+                background: #eee;
+                width: 1px;
+                height: 40px;
+                display: inline-block;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                transform: translateY(-50%);
+            }
+
+            text-align: center;
+            &.active {
+                background: $pink;
+                color: #fff;
+            }
+            .icon {
+                margin-top: 15px;
+                font-size: 30px;
+            }
+        }
+    }
+    .card.time-location {
+        p {
+            margin: 0;
+            font-weight: 700;
+        }
+        hr {
+            margin: 3px 0;
+        }
+    }
+}

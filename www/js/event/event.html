@@ -1,24 +1,54 @@
-<ion-view view-title="Event">
+<ion-view view-title="Event" class="section section-event">
 
     <ion-content class="padding">
-        <h1>Event</h1>
         <div class="list card">
-
-            <div class="item item-avatar">
-                <img ng-src="{{event.avatar}}">
-                <h2>{{event.title}}</h2>
-                <p>{{event.description}}</p>
+            <div class="row">
+                <div class="col">
+                    <h2 class="title">{{event.title}}</h2>
+                    <p class="subtitle">
+                        <i class="icon icon-time"></i>{{event.startDate | eventFormatDate : event.startDate}}
+                    </p>
+                </div>
             </div>
 
-            <div class="item item-image">
-                <img ng-src="{{event.image}}">
+            <div class="item-image">
+                <img src="http://lorempixel.com/g/600/400">
             </div>
 
-            <a class="item item-icon-left assertive" href="#" ng-click="attend($index)">
-                <i class="icon ion-music-note"></i>
-                Attend
-            </a>
+            <div class="row no-padding">
+                <div class="col-75 padding">
+                    <b>{{event.attending.length}} members</b> attending <br/>
+                    <b>{{event.points}} points</b> /  check-in
+                </div>
+                <a class="col-25 attend-link" ng-click="attend(event.id)" ng-class="{active: isAttending(event)}">
+                    <i class="icon icon-attend" ></i>
+                </a>
+            </div>
 
         </div>
+
+        <div class="list card time-location">
+            <div class="row">
+                <div class="col">
+                    <p>
+                        <i class="icon icon-time"></i>{{event.startDate | eventFormatDate : event.startDate}}
+                    </p>
+                    <hr ng-if="event.location"/>
+                    <p ng-if="event.location">
+                        <i class="icon icon-location"></i>{{event.location}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="list card">
+            <div class="row">
+                <div class="col">
+                    <p><b>Description</b></p>
+                    <p>{{event.description}}</p>
+                </div>
+            </div>
+        </div>
+
+        <comments source="event.comments"></comments>
     </ion-content>
 </ion-view>

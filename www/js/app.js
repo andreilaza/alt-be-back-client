@@ -8,9 +8,11 @@
 angular.module('alt', [
   'ionic',
   'ngCordova',
+  'ngResource',
   'ngStorage',
 
   'common.services.auth',
+  'common.directives.comments',
 
   'alt.tour',
   'alt.user',
@@ -18,6 +20,7 @@ angular.module('alt', [
   'alt.tabs',
   'alt.login',
   'alt.newsfeed',
+  'alt.newsfeed.sidemenu',
   'alt.events',
   'alt.scanner',
   'alt.ranking',
@@ -37,6 +40,9 @@ angular.module('alt', [
         StatusBar.styleLightContent();
       }
     });
+  })
+  .constant('constants', {
+    apiBaseUrl: 'http://10.10.10.163:3000'
   })
 
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -63,46 +69,70 @@ angular.module('alt', [
       .state('tab', {
         url: '/tab',
         abstract: true,
+
         templateUrl: 'js/tabs/tabs.html',
         controller: 'TabsCtrl'
       })
 
       .state('tab.events', {
         abstract: true,
+
         views: {
           'tab-events': {
             template: '<ion-nav-view animation="slide-left-right"></ion-nav-view>'
           }
         }
+
       })
       .state('tab.events.list', {
         url: '/events',
+        cache: false,
         templateUrl: 'js/events/events.html',
-        controller: 'EventsCtrl'
+        controller: 'EventsCtrl',
+        resolve: {
+          events: function(Event) {
+            return Event.query().$promise;
+          }
+        }
+
       })
       .state('tab.events.details', {
         url: '/events/:id',
+        cache: false,
         templateUrl: 'js/event/event.html',
-        controller: 'EventCtrl'
+        controller: 'EventCtrl',
+        resolve: {
+          event: function(Event, $stateParams) {
+            return Event.get({id:$stateParams.id}).$promise;
+          }
+        }
+
       })
+
 
       .state('tab.newsfeed', {
         abstract: true,
         views: {
           'tab-newsfeed': {
-            template: '<ion-nav-view animation="slide-left-right"></ion-nav-view>'
+            templateUrl: 'js/newsfeed/menu.html',
+            controller: 'SideMenuCtrl'
           }
         }
       })
       .state('tab.newsfeed.list', {
-        url: '/newsfeed',
+        url: '/newsfeed/:type',
         templateUrl: 'js/newsfeed/newsfeed.html',
         controller: 'NewsfeedCtrl'
       })
       .state('tab.newsfeed.event', {
         url: '/event/:id',
         templateUrl: 'js/event/event.html',
-        controller: 'EventCtrl'
+        controller: 'EventCtrl',
+        resolve: {
+          event: function(Event, $stateParams) {
+            return Event.get({id:$stateParams.id}).$promise;
+          }
+        }
       })
       .state('tab.newsfeed.user', {
         url: '/user/:id',
