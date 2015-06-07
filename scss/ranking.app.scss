@@ -20,4 +20,62 @@
 
 .section-ranking {
 	background: #eee;
+
+
+    .title {
+        font-size: 25px;
+        margin: 0;
+    }
+    .subtitle {
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .top-card {
+        .icon-cup {
+            font-size: 70px;
+        }
+    }
+    .list {
+        padding: 5px 10px;
+        border: none;
+
+        background: #fff;
+
+        .item {
+            border: none;
+            border-bottom: solid 1px #eee;
+
+            margin: 0;
+            padding: 15px 10px 15px 50px;
+
+            &.active {
+                color: #fff;
+                background: $darkPink;
+                border-color: $darkPink;
+                border-left: solid 10px $darkPink;
+                border-right: solid 10px $darkPink;
+                margin-left: -10px;
+                margin-right: -10px;
+            }
+        }
+        .item:last-child {
+            border: none;
+        }
+    }
+    .item {
+        .name, .points, .index {
+            font-size: 13px;
+        }
+        .points {
+            float: right;
+        }
+        .index {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+        }
+        .icon {
+            left: 7px;
+        }
+    }
 }

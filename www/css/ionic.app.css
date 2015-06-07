@@ -7822,6 +7822,43 @@ ion-tabs .tabs {
 
 .section-ranking {
   background: #eee; }
+  .section-ranking .title {
+    font-size: 25px;
+    margin: 0; }
+  .section-ranking .subtitle {
+    font-weight: bold;
+    font-size: 16px; }
+  .section-ranking .top-card .icon-cup {
+    font-size: 70px; }
+  .section-ranking .list {
+    padding: 5px 10px;
+    border: none;
+    background: #fff; }
+    .section-ranking .list .item {
+      border: none;
+      border-bottom: solid 1px #eee;
+      margin: 0;
+      padding: 15px 10px 15px 50px; }
+      .section-ranking .list .item.active {
+        color: #fff;
+        background: #3e021b;
+        border-color: #3e021b;
+        border-left: solid 10px #3e021b;
+        border-right: solid 10px #3e021b;
+        margin-left: -10px;
+        margin-right: -10px; }
+    .section-ranking .list .item:last-child {
+      border: none; }
+  .section-ranking .item .name, .section-ranking .item .points, .section-ranking .item .index {
+    font-size: 13px; }
+  .section-ranking .item .points {
+    float: right; }
+  .section-ranking .item .index {
+    position: absolute;
+    left: 20px;
+    top: 15px; }
+  .section-ranking .item .icon {
+    left: 7px; }
 
 .section-tour .tour {
   position: relative;
@@ -7979,7 +8016,8 @@ ion-tabs .tabs {
     height: 100px;
     border: solid 1px #eee;
     border-radius: 4px;
-    padding: 10px; }
+    padding: 10px;
+    box-shadow: none; }
   .section-add-post .card {
     padding: 20px 10px; }
 
