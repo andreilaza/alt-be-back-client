@@ -7,9 +7,9 @@ angular.module('alt.event', [])
     $scope.event = event;
 
     $scope.attend = function () {
-      EventService.attend(event._id, Auth.getUser()._id).then(function(data) {
+      EventService.attend(event._id, Auth.getMemberId()).then(function(data) {
 
-        event.attending.push(Auth.getUser()._id);
+        event.attending.push(Auth.getMemberId());
 
       }, function(error) {
         alert(JSON.stringify(error));
@@ -17,12 +17,12 @@ angular.module('alt.event', [])
     };
 
     $scope.isAttending = function (event) {
-      var index = $scope.event.attending.indexOf(Auth.getUser()._id);
+      var index = $scope.event.attending.indexOf(Auth.getMemberId());
       return index !== -1 ? true : false;
     };
 
     $scope.commentSubmit = function (message) {
-      EventService.addComment($scope.event._id, message, Auth.getUser()._id)
+      EventService.addComment($scope.event._id, message, Auth.getMemberId())
         .then(function (data) {
           $scope.event.comments = data.comments;
         });

@@ -7,7 +7,7 @@ angular.module('alt.post', [])
     $scope.post = post;
 
     $scope.commentSubmit = function (message) {
-      PostService.addComment($scope.post._id, message, Auth.getUser()._id)
+      PostService.addComment($scope.post._id, message, Auth.getMemberId())
         .then(function (data) {
           $scope.post.comments = data.comments;
         });

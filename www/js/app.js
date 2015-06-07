@@ -215,7 +215,7 @@ angular.module('alt', [
         resolve: {
           user: function(Member, $stateParams, Auth) {
 
-            return Member.get({id: Auth.getUser()._id}).$promise;
+            return Member.get({id: Auth.getMemberId()}).$promise;
           }
         }
       })

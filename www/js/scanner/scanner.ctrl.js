@@ -13,7 +13,7 @@ angular.module('alt.scanner', [])
             $state.go('tab.feeds.list');
             return;
           }
-          return EventService.checkin(barcodeData.text, Auth.getUser()._id)
+          return EventService.checkin(barcodeData.text, Auth.getMemberId())
             .then(function(result) {
               $scope.scanResult = result.data;
               $scope.openModal();
