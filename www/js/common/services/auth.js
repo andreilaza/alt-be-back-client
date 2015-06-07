@@ -1,43 +1,109 @@
 angular.module('common.services.auth', [])
-  .factory('Auth', function($localStorage, $http, $state) {
+  .factory('Auth', function($localStorage, $http, $state, Member) {
     var user;
 
-    function login(response) {
+    function login(type, response) {
 
       // Save access Token
       $localStorage.accessToken = response.access_token;
 
-      http.get("https://graph.facebook.com/v2.2/me", { params: { access_token: $localStorage.accessToken, fields: "id,name,gender,location,website,picture,relationship_status", format: "json" }}).then(function(result) {
-          user = result.data;
-          user.credentials = response;
-          alert(JSON.stringify(result.data));
+      if(type === 'facebook') {
+        $http.get("https://graph.facebook.com/v2.2/me", { params: { access_token: $localStorage.accessToken, fields: "id, email,name,picture", format: "json" }}).then(function(result) {
+            user = {
+              credentials: response,
+              member: {
+                accessKey: $localStorage.accessToken,
+                type: 'facebook',
+                email: result.data.email,
+                externalId: result.data.id,
+                avatar: result.data.picture.url | '',
+                name: result.data.name
+              }
+            }
 
-      }, function(error) {
-          // alert("There was a problem getting your profile.");
-          alert(error)
-      });
+            Member.check(user.member, function(response) {
+              if(response.status) {
+                if(response.data.firstLogin) {
+                  user.member._id = response.data._id;
+                  $state.go('tour');
+                } else {
+                  user.member._id = response.data._id;
+                  $state.go('tab.newsfeed.list');
+                }
+              } else {
+                errorHandler(response.data);
+              }
+            });
 
-      // Get google profile
+        }, function(error) {
+            errorHandler("There was a problem getting your profile.");
+            // alert(error)
+        });
 
-      // Call our api
+      } else {
 
-        // Redirect success
-        // $state.go('newsfeed')
+        $http.get("https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=" + $localStorage.accessToken).then(function(result) {
+          user = {
+            credentials: response,
+            member: {
+              accessKey: $localStorage.accessToken,
+              type: 'google',
+              email: result.data.email,
+              externalId: result.data.id,
+              avatar: result.data.picture | '',
+              name: result.data.name
+            }
+          }
 
-        // Redirect first time
-        // $state.go('tour')
+          Member.check(user.member, function(response) {
+            if(response.status) {
+              if(response.data.firstLogin) {
+                user.member._id = response.data._id;
+                $state.go('tour');
+              } else {
+                user.member._id = response.data._id;
+                $state.go('tab.feeds.list');
+              }
+            } else {
+              errorHandler(response.data);
+            }
+          });
+
+        }, function(error) {
+            errorHandler("There was a problem getting your profile.");
+        });
+      }
     }
 
     function error(error) {
       // alert("There was a problem signing in!");
-      alert(error);
+      errorHandler(error);
     }
 
-    function check() {
+    function check(redirect) {
       if($localStorage.hasOwnProperty("accessToken") !== true) {
-          alert("Not signed in");
+          errorHandler("Not signed in");
           $state.go('login');
+      } else {
+        if(typeof(redirect) !== 'undefined') {
+          Member.check({ accessKey: $localStorage.accessToken }, function(response) {
+            errorHandler(JSON.stringify(response))
+            if(response.status) {
+              user = response.data;
+              $state.go('tab.feeds.list');
+            } else {
+              delete $localStorage.accessToken;
+              errorHandler('You are not a member anymore')
+            }
+          }, function(error) {
+            errorHandler(JSON.stringify(error))
+          });
+        }
       }
+    }
+
+    function errorHandler(error) {
+      alert(error);
     }
 
     function getUser() {
