@@ -108,4 +108,7 @@ angular.module('alt.feeds', [])
       // Execute action
     });
 
+    $scope.submitPost = function () {
+
+    };
   });

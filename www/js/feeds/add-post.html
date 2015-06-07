@@ -1,15 +1,22 @@
-<ion-modal-view>
+<ion-modal-view class="section section-add-post">
     <ion-header-bar>
         <h1 class="title">Add a post</h1>
-    </ion-header-bar>
-    <ion-content>
-
-        <div class="list">
-            <label class="item item-input item-floating-label">
-                <span class="input-label">Message</span>
-                <input type="text" placeholder="Message">
-            </label>
+        <div class="buttons">
+            <button class="button button-icon icon icon-close" ng-click="closeModal()"></button>
         </div>
-        <button ng-click="closeModal()">Submit</button>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+        <div class="card">
+            <i class="icon icon-comment"></i>
+            <h1 class="title">What’s on your mind?</h1>
+            <div class="list">
+                <label class=" item-textarea">
+
+                    <textarea type="text" placeholder="Say something nice..."></textarea>
+                </label>
+            </div>
+            <button ng-click="submitPost()" class="button button-pink">Post It</button>
+        </div>
     </ion-content>
 </ion-modal-view>

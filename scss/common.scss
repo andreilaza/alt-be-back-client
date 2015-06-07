@@ -92,6 +92,16 @@ ion-tabs .tabs {
     }
 
 }
+.button {
+    color: #fff;
+}
+.card {
+    box-shadow: none;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    margin: 5px 0 10px 0;
+}
 .loading .section {
 
     &:after {
