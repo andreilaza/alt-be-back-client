@@ -6,8 +6,10 @@ angular.module('alt.post', [])
 
     $scope.post = post;
 
-    console.log(post);
     $scope.commentSubmit = function (message) {
-      PostService.addComment($scope.post._id, message, Auth.getUser()._id);
+      PostService.addComment($scope.post._id, message, Auth.getUser()._id)
+        .then(function (data) {
+          $scope.post.comments = data.comments;
+        });
     };
   });

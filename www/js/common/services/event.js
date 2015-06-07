@@ -18,17 +18,20 @@ angular.module('alt')
 
     };
     this.checkin = function (eventId, memberId) {
-      return $http.post(constants.apiBaseUrl + '/events/checkin', {
-        eventId: eventId,
+
+      return $http.post(constants.apiBaseUrl + '/checkin', {
+        id: eventId,
         memberId: memberId
       });
     };
 
     this.addComment = function (eventId, message, memberId) {
-      return $http.post(constants.apiBaseUrl + '/post/comment', {
+      return $http.post(constants.apiBaseUrl + '/events/comment', {
         eventId: eventId,
         message: message,
         memberId: memberId
+      }).then(function(result) {
+        return new Event(result.data);
       });
     };
   });

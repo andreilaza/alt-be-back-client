@@ -10,6 +10,7 @@ angular.module('common.directives.comments', [])
         controller: function ($scope) {
 
           $scope.newMessage = '';
+
         },
         link: function (scope, element, attrs) {
 

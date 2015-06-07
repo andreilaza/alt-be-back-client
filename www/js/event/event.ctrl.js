@@ -1,7 +1,7 @@
 angular.module('alt.event', [])
   .controller(
   'EventCtrl',
-  function($scope, event, EventService, Auth) {
+  function($scope, event, EventService, Event, Auth) {
     //Auth.check();
 
     $scope.event = event;
@@ -17,12 +17,15 @@ angular.module('alt.event', [])
     };
 
     $scope.isAttending = function (event) {
-      var index = event.attending.indexOf(Auth.getUser()._id);
+      var index = $scope.event.attending.indexOf(Auth.getUser()._id);
       return index !== -1 ? true : false;
     };
 
     $scope.commentSubmit = function (message) {
-      EventService.addComment($scope.event._id, message, Auth.getUser()._id);
+      EventService.addComment($scope.event._id, message, Auth.getUser()._id)
+        .then(function (data) {
+          $scope.event.comments = data.comments;
+        });
     };
 
   });

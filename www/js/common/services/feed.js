@@ -8,6 +8,6 @@ angular.module('alt')
       }
     );
   })
-  .service('FeedService', function (Event, $q) {
+  .service('FeedService', function (Feed, $q) {
 
   });

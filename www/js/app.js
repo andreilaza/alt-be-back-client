@@ -13,7 +13,7 @@ angular.module('alt', [
 
   'common.services.auth',
   'common.directives.comments',
-
+  'ui-notification',
   'alt.tour',
   'alt.user',
   'alt.event',
@@ -180,12 +180,22 @@ angular.module('alt', [
       .state('tab.ranking.list', {
         url: '/ranking',
         templateUrl: 'js/ranking/ranking.html',
-        controller: 'RankingCtrl'
+        controller: 'RankingCtrl',
+        resolve: {
+          ranking: function(Ranking) {
+            return Ranking.get().$promise;
+          }
+        }
       })
       .state('tab.ranking.user', {
         url: '/ranking/:id',
         templateUrl: 'js/user/user.html',
-        controller: 'UserCtrl'
+        controller: 'UserCtrl',
+        resolve: {
+          user: function(Member,$stateParams) {
+            return Member.get({id:$stateParams.id}).$promise;
+          }
+        }
       })
 
 
@@ -196,12 +206,18 @@ angular.module('alt', [
             template: '<ion-nav-view animation="slide-right-left"></ion-nav-view>'
           }
         }
-      })
 
+      })
       .state('tab.profile.details', {
         url: '/profile/:id',
         templateUrl: 'js/profile/profile.html',
-        controller: 'ProfileCtrl'
+        controller: 'ProfileCtrl',
+        resolve: {
+          user: function(Member, $stateParams, Auth) {
+
+            return Member.get({id: Auth.getUser()._id}).$promise;
+          }
+        }
       })
       .state('tab.profile.ranking', {
         url: '/profile-ranking',
