@@ -11,9 +11,11 @@ angular.module('common.directives.comments', [])
 
           $scope.newMessage = '';
 
-        },
-        link: function (scope, element, attrs) {
+          $scope.submitWrapper = function (message) {
 
+            $scope.newMessage = '';
+            $scope.submit(message);
+          }
         }
       }
   });

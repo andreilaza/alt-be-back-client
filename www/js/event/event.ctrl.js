@@ -1,7 +1,7 @@
 angular.module('alt.event', [])
   .controller(
   'EventCtrl',
-  function($scope, event, EventService, Event, Auth) {
+  function($scope, event, EventService, Notification, Event, Auth) {
     //Auth.check();
 
     $scope.event = event;
@@ -9,10 +9,11 @@ angular.module('alt.event', [])
     $scope.attend = function () {
       EventService.attend(event._id, Auth.getMemberId()).then(function(data) {
 
+        Notification.success('Event attend success');
         event.attending.push(Auth.getMemberId());
 
       }, function(error) {
-        alert(JSON.stringify(error));
+        Notification.error('Event attend failed');
       });
     };
 
@@ -25,6 +26,10 @@ angular.module('alt.event', [])
       EventService.addComment($scope.event._id, message, Auth.getMemberId())
         .then(function (data) {
           $scope.event.comments = data.comments;
+          Notification.success('Comment submit success');
+        }, function (error) {
+          Notification.error('Comment submit failed');
+
         });
     };
 

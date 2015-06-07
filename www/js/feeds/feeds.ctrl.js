@@ -56,8 +56,9 @@ angular.module('alt.feeds', [])
       // Execute action
     });
 
-    alert(JSON.stringify(Auth.getMemberId()));
+    $scope.postMessage = '';
     $scope.submitPost = function (message) {
+      $scope.postMessage = '';
       PostService.create(message, Auth.getMemberId()).then(function (data) {
         $scope.feeds = Feed.query();
       });

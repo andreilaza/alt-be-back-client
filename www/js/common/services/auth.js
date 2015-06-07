@@ -90,7 +90,9 @@ angular.module('common.services.auth', [])
         if(typeof(redirect) !== 'undefined') {
           Member.check({ accessKey: $localStorage.accessToken }, function(response) {
             if(response.status) {
-              user = response.data;
+              user = {
+                member: response.data
+              };
               $state.go('tab.feeds.list');
             } else {
               delete $localStorage.accessToken;
@@ -108,12 +110,16 @@ angular.module('common.services.auth', [])
     }
 
     function getMemberId() {
+      if (!user) {
+        Notification.error('GetMemberID failed.');
+        return '55743aad7223cdfd379490bd';
+      }
       return user.member._id;
     }
 
     function getUser() {
       return user || {
-          _id : '55742c1caffb2812792e7d71'
+          _id : '55743aad7223cdfd379490bd'
         };
     }
 
