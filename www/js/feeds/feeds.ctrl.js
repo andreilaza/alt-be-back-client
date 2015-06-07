@@ -2,7 +2,7 @@ angular.module('alt.feeds', [])
   .controller(
   'FeedsCtrl',
   function ($scope, $state, $stateParams, $ionicModal, Auth) {
-    //Auth.check();
+    // Auth.check();
 
     $scope.feeds = [
       {
