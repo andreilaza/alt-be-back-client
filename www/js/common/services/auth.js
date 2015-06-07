@@ -9,7 +9,6 @@ angular.module('common.services.auth', [])
 
       if(type === 'facebook') {
         $http.get("https://graph.facebook.com/v2.2/me", { params: { access_token: $localStorage.accessToken, fields: "id, email,name,picture", format: "json" }}).then(function(result) {
-          alert(JSON.stringify(result))
             user = {
               credentials: response,
               member: {
@@ -108,6 +107,10 @@ angular.module('common.services.auth', [])
       Notification.error(error);
     }
 
+    function getMemberId() {
+      return user.member._id;
+    }
+
     function getUser() {
       return user || {
           _id : '55742c1caffb2812792e7d71'
@@ -118,6 +121,7 @@ angular.module('common.services.auth', [])
       login: login,
       error: error,
       check: check,
+      getMemberId: getMemberId,
       getUser: getUser
     };
 
