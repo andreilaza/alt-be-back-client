@@ -1,6 +1,6 @@
-angular.module('alt.newsfeed', [])
+angular.module('alt.feeds', [])
   .controller(
-  'NewsfeedCtrl',
+  'FeedsCtrl',
   function ($scope, $state, $stateParams, $ionicModal, Auth) {
     //Auth.check();
 
@@ -10,7 +10,7 @@ angular.module('alt.newsfeed', [])
         category: 'activity',
         date: 1433601916803,
 
-        user : {
+        user: {
           id: 3,
           name: 'Andrei Demian',
           avatar: 'http://lorempixel.com/g/50/50/',
@@ -28,7 +28,7 @@ angular.module('alt.newsfeed', [])
         category: 'event',
         date: 1433601916803,
 
-        user : {
+        user: {
           id: 3,
           name: 'Claudiu Filip',
           avatar: 'http://lorempixel.com/g/50/50/',
@@ -45,7 +45,8 @@ angular.module('alt.newsfeed', [])
         category: 'post',
         date: 1433601916803,
 
-        user : {
+        comments: [],
+        user: {
           id: 3,
           name: 'Claudiu Filip',
           avatar: 'http://lorempixel.com/g/50/50/'
@@ -62,12 +63,16 @@ angular.module('alt.newsfeed', [])
     ];
 
     $scope.type = $stateParams.type;
+    $scope.goToPost = function (id) {
+      $state.go('tab.feeds.post', {id: id});
+    };
+
     $scope.goToEvent = function (id) {
-      $state.go('tab.newsfeed.event', {id: id});
+      $state.go('tab.feeds.event', {id: id});
     };
 
     $scope.goToUser = function (id) {
-      $state.go('tab.newsfeed.user', {id: id});
+      $state.go('tab.feeds.user', {id: id});
     };
     $scope.categoryType = function (item) {
       if ($scope.type) {
@@ -77,30 +82,29 @@ angular.module('alt.newsfeed', [])
     };
 
 
-
-    $ionicModal.fromTemplateUrl('js/newsfeed/post.html', {
+    $ionicModal.fromTemplateUrl('js/feeds/add-post.html', {
       scope: $scope,
       animation: 'slide-in-up'
-    }).then(function(modal) {
+    }).then(function (modal) {
       $scope.modal = modal;
     });
 
-    $scope.openModal = function() {
+    $scope.openModal = function () {
       $scope.modal.show();
     };
-    $scope.closeModal = function() {
+    $scope.closeModal = function () {
       $scope.modal.hide();
     };
     //Cleanup the modal when we're done with it!
-    $scope.$on('$destroy', function() {
+    $scope.$on('$destroy', function () {
       $scope.modal.remove();
     });
     // Execute action on hide modal
-    $scope.$on('modal.hidden', function() {
+    $scope.$on('modal.hidden', function () {
       // Execute action
     });
     // Execute action on remove modal
-    $scope.$on('modal.removed', function() {
+    $scope.$on('modal.removed', function () {
       // Execute action
     });
 

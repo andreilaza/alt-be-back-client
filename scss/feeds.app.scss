@@ -1,0 +1,49 @@
+.section-feeds {
+    .item-avatar {
+        border-color: #eee;
+        position: relative;
+        .title {
+            display: block;
+            padding-right: 30px;
+        }
+
+        .item-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            height: 26px;
+        }
+        .event-link, .title, .action, .post-link {
+            font-size: 13px;
+            color: #3d3d3d;
+        }
+
+        .action-date {
+            color: #a6a6a6;
+        }
+        .event-link, .post-link, .comment-label {
+            position: relative;
+            top: 5px;
+            color: $pink;
+            font-weight: 600;
+            display: inline-block;
+            vertical-align: middle;
+
+            .icon {
+
+                height: 24px;
+                font-size: 20px;
+                vertical-align: middle;
+            }
+        }
+        .action {
+            overflow: visible !important;
+            white-space: normal !important;
+        }
+
+        .comment-label {
+            color: #3d3d3d;
+            margin-right: 10px;
+        }
+    }
+}

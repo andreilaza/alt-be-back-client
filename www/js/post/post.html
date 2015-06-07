@@ -1,0 +1,36 @@
+<ion-view view-title="Post" class="section section-post">
+    <ion-nav-bar>
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content class="padding">
+        <div class="list card">
+            <div class="item item-avatar">
+                <img ng-src="{{post.user.avatar}}">
+
+                <a ng-click="goToUser(post.user.id)" class="title">
+                    <b>{{post.user.name}}</b>
+                </a>
+                <p class="action">
+                    <span class="action-input">{{post.input}}</span>
+                    <span class="action-date">- {{post.date | timeDifference}}h ago</span>
+                </p>
+
+
+            </div>
+
+            <div class="row no-padding">
+                <div class="col-75 padding">
+
+                    <span class="comment-label">
+                        <i class="icon icon-total"></i> <b>{{post.comments.length}} comments</b>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <comments source="post.comments"></comments>
+    </ion-content>
+</ion-view>

@@ -1,6 +1,9 @@
-.section-events, .section-event {
+.section-events, .section-event, .section-post {
     background: #eee;
 
+    .action-date {
+        color: #a6a6a6;
+    }
     .card {
         box-shadow: none;
         font-size: 13px;
@@ -23,9 +26,10 @@
             vertical-align: middle;
             color: #a6a6a6;
         }
-        .attend-link {
+        .attend-link, .comment-link {
             position: relative;
             color: $pink;
+
 
             &:before {
                 content: '';
@@ -51,6 +55,39 @@
                 font-size: 30px;
             }
         }
+
+        .action {
+            font-size: 13px;
+            overflow: visible !important;
+            white-space: normal !important;
+        }
+        .comment-link {
+            .icon {
+                margin-top: 10px;
+            }
+        }
+
+        .comment-label {
+            position: relative;
+            top: 5px;
+            color: $pink;
+            font-weight: 600;
+            display: inline-block;
+            vertical-align: middle;
+
+            .icon {
+
+                height: 24px;
+                font-size: 20px;
+                vertical-align: middle;
+            }
+        }
+
+        .comment-label {
+            color: #3d3d3d;
+            margin-right: 10px;
+        }
+
     }
     .card.time-location {
         p {
@@ -60,5 +97,10 @@
         hr {
             margin: 3px 0;
         }
+    }
+}
+.section-post {
+    .card .title {
+        font-size: 13px;
     }
 }

@@ -1,6 +1,6 @@
-angular.module('alt.newsfeed.sidemenu', [])
+angular.module('alt.feeds.menu', [])
   .controller(
-  'SideMenuCtrl',
+  'MenuCtrl',
   function ($scope, $state, $ionicSideMenuDelegate, Auth) {
     $scope.toggleLeft = function() {
       $ionicSideMenuDelegate.toggleLeft();

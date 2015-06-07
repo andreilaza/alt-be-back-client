@@ -7919,48 +7919,66 @@ ion-tabs .tabs {
       background: url('../img/logo-alt.svg') center center no-repeat;
       background-size: auto 100%; }
 
-.section-newsfeed .item-avatar {
-  border-color: #eee; }
-  .section-newsfeed .item-avatar .event-link, .section-newsfeed .item-avatar .title, .section-newsfeed .item-avatar .action {
+.section-feeds .item-avatar {
+  border-color: #eee;
+  position: relative; }
+  .section-feeds .item-avatar .title {
+    display: block;
+    padding-right: 30px; }
+  .section-feeds .item-avatar .item-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    height: 26px; }
+  .section-feeds .item-avatar .event-link, .section-feeds .item-avatar .title, .section-feeds .item-avatar .action, .section-feeds .item-avatar .post-link {
     font-size: 13px;
     color: #3d3d3d; }
-  .section-newsfeed .item-avatar .action-date {
+  .section-feeds .item-avatar .action-date {
     color: #a6a6a6; }
-  .section-newsfeed .item-avatar .event-link {
+  .section-feeds .item-avatar .event-link, .section-feeds .item-avatar .post-link, .section-feeds .item-avatar .comment-label {
     position: relative;
     top: 5px;
     color: #db075e;
-    font-weight: 600; }
-    .section-newsfeed .item-avatar .event-link .icon {
-      position: relative;
-      top: -2px;
+    font-weight: 600;
+    display: inline-block;
+    vertical-align: middle; }
+    .section-feeds .item-avatar .event-link .icon, .section-feeds .item-avatar .post-link .icon, .section-feeds .item-avatar .comment-label .icon {
+      height: 24px;
       font-size: 20px;
       vertical-align: middle; }
+  .section-feeds .item-avatar .action {
+    overflow: visible !important;
+    white-space: normal !important; }
+  .section-feeds .item-avatar .comment-label {
+    color: #3d3d3d;
+    margin-right: 10px; }
 
-.section-events, .section-event {
+.section-events, .section-event, .section-post {
   background: #eee; }
-  .section-events .card, .section-event .card {
+  .section-events .action-date, .section-event .action-date, .section-post .action-date {
+    color: #a6a6a6; }
+  .section-events .card, .section-event .card, .section-post .card {
     box-shadow: none;
     font-size: 13px;
     border: none;
     border-radius: 0;
     margin: 5px 0 10px 0; }
-    .section-events .card .title, .section-event .card .title {
+    .section-events .card .title, .section-event .card .title, .section-post .card .title {
       font-size: 16px;
       font-weight: 700;
       margin-bottom: 0; }
-    .section-events .card .subtitle, .section-event .card .subtitle {
+    .section-events .card .subtitle, .section-event .card .subtitle, .section-post .card .subtitle {
       margin-bottom: 0; }
-    .section-events .card .icon-time, .section-events .card .icon-location, .section-event .card .icon-time, .section-event .card .icon-location {
+    .section-events .card .icon-time, .section-events .card .icon-location, .section-event .card .icon-time, .section-event .card .icon-location, .section-post .card .icon-time, .section-post .card .icon-location {
       font-size: 30px;
       margin-left: -8px;
       vertical-align: middle;
       color: #a6a6a6; }
-    .section-events .card .attend-link, .section-event .card .attend-link {
+    .section-events .card .attend-link, .section-events .card .comment-link, .section-event .card .attend-link, .section-event .card .comment-link, .section-post .card .attend-link, .section-post .card .comment-link {
       position: relative;
       color: #db075e;
       text-align: center; }
-      .section-events .card .attend-link:before, .section-event .card .attend-link:before {
+      .section-events .card .attend-link:before, .section-events .card .comment-link:before, .section-event .card .attend-link:before, .section-event .card .comment-link:before, .section-post .card .attend-link:before, .section-post .card .comment-link:before {
         content: '';
         background: #eee;
         width: 1px;
@@ -7972,17 +7990,40 @@ ion-tabs .tabs {
         -webkit-transform: translateY(-50%);
         -moz-transform: translateY(-50%);
         transform: translateY(-50%); }
-      .section-events .card .attend-link.active, .section-event .card .attend-link.active {
+      .section-events .card .attend-link.active, .section-events .card .comment-link.active, .section-event .card .attend-link.active, .section-event .card .comment-link.active, .section-post .card .attend-link.active, .section-post .card .comment-link.active {
         background: #db075e;
         color: #fff; }
-      .section-events .card .attend-link .icon, .section-event .card .attend-link .icon {
+      .section-events .card .attend-link .icon, .section-events .card .comment-link .icon, .section-event .card .attend-link .icon, .section-event .card .comment-link .icon, .section-post .card .attend-link .icon, .section-post .card .comment-link .icon {
         margin-top: 15px;
         font-size: 30px; }
-  .section-events .card.time-location p, .section-event .card.time-location p {
+    .section-events .card .action, .section-event .card .action, .section-post .card .action {
+      font-size: 13px;
+      overflow: visible !important;
+      white-space: normal !important; }
+    .section-events .card .comment-link .icon, .section-event .card .comment-link .icon, .section-post .card .comment-link .icon {
+      margin-top: 10px; }
+    .section-events .card .comment-label, .section-event .card .comment-label, .section-post .card .comment-label {
+      position: relative;
+      top: 5px;
+      color: #db075e;
+      font-weight: 600;
+      display: inline-block;
+      vertical-align: middle; }
+      .section-events .card .comment-label .icon, .section-event .card .comment-label .icon, .section-post .card .comment-label .icon {
+        height: 24px;
+        font-size: 20px;
+        vertical-align: middle; }
+    .section-events .card .comment-label, .section-event .card .comment-label, .section-post .card .comment-label {
+      color: #3d3d3d;
+      margin-right: 10px; }
+  .section-events .card.time-location p, .section-event .card.time-location p, .section-post .card.time-location p {
     margin: 0;
     font-weight: 700; }
-  .section-events .card.time-location hr, .section-event .card.time-location hr {
+  .section-events .card.time-location hr, .section-event .card.time-location hr, .section-post .card.time-location hr {
     margin: 3px 0; }
+
+.section-post .card .title {
+  font-size: 13px; }
 
 .comments {
   font-size: 13px; }

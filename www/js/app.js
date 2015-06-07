@@ -19,8 +19,9 @@ angular.module('alt', [
   'alt.event',
   'alt.tabs',
   'alt.login',
-  'alt.newsfeed',
-  'alt.newsfeed.sidemenu',
+  'alt.feeds',
+  'alt.post',
+  'alt.feeds.menu',
   'alt.events',
   'alt.scanner',
   'alt.ranking',
@@ -110,21 +111,26 @@ angular.module('alt', [
       })
 
 
-      .state('tab.newsfeed', {
+      .state('tab.feeds', {
         abstract: true,
         views: {
-          'tab-newsfeed': {
-            templateUrl: 'js/newsfeed/menu.html',
-            controller: 'SideMenuCtrl'
+          'tab-feeds': {
+            templateUrl: 'js/feeds/menu.html',
+            controller: 'MenuCtrl'
           }
         }
       })
-      .state('tab.newsfeed.list', {
-        url: '/newsfeed/:type',
-        templateUrl: 'js/newsfeed/newsfeed.html',
-        controller: 'NewsfeedCtrl'
+      .state('tab.feeds.post', {
+        url: '/post/:id',
+        templateUrl: 'js/post/post.html',
+        controller: 'PostCtrl'
       })
-      .state('tab.newsfeed.event', {
+      .state('tab.feeds.list', {
+        url: '/feeds/:type',
+        templateUrl: 'js/feeds/feeds.html',
+        controller: 'FeedsCtrl'
+      })
+      .state('tab.feeds.event', {
         url: '/event/:id',
         templateUrl: 'js/event/event.html',
         controller: 'EventCtrl',
@@ -134,7 +140,7 @@ angular.module('alt', [
           }
         }
       })
-      .state('tab.newsfeed.user', {
+      .state('tab.feeds.user', {
         url: '/user/:id',
         templateUrl: 'js/user/user.html',
         controller: 'UserCtrl'

@@ -1,4 +1,4 @@
-<ion-view view-title="Feeds" class="section section-newsfeed">
+<ion-view view-title="Feeds" class="section section-feeds">
 
     <ion-nav-bar>
         <ion-nav-buttons side="left">
@@ -11,6 +11,7 @@
     <ion-content>
         <div class="item item-avatar"  ng-repeat="feed in feeds |  filter: categoryType">
             <img ng-src="{{feed.user.avatar}}">
+            <img class="item-icon" ng-src="{{feed.action.type | actionTypeMap}}">
             <a ng-click="goToUser(feed.user.id)" class="title">
                 <b>{{feed.user.name}}</b>
                 <span class="action-label" ng-if="feed.action.type !== 'event'">{{feed.action.label}}</span>
@@ -24,6 +25,15 @@
             <a class="event-link" ng-click="goToEvent(feed.action.id)" ng-if="feed.action.type === 'event'">
                 <i class="icon icon-event_details"></i> See Event Details
             </a>
+            <p ng-if="feed.category === 'post'">
+                <span class="comment-label">
+                    <i class="icon icon-total"></i> <b>{{feed.comments.length}}</b>
+                </span>
+                <a class="post-link" ng-click="goToPost(feed.action.id)" >
+                    <i class="icon icon-comment"></i> Leave a Comment
+                </a>
+            </p>
+
         </div>
 
     </ion-content>
