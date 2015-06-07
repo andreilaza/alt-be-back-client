@@ -12,11 +12,10 @@
             <h1 class="title">What’s on your mind?</h1>
             <div class="list">
                 <label class=" item-textarea">
-
-                    <textarea type="text" placeholder="Say something nice..."></textarea>
+                    <textarea type="text" placeholder="Say something nice..." ng-model="postMessage"></textarea>
                 </label>
             </div>
-            <button ng-click="submitPost()" class="button button-pink">Post It</button>
+            <button ng-click="submitPost(postMessage)" class="button button-pink">Post It</button>
         </div>
     </ion-content>
 </ion-modal-view>

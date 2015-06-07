@@ -7769,6 +7769,23 @@ ion-tabs .tabs {
 .button {
   color: #fff; }
 
+.separator {
+  position: relative; }
+  .separator:before {
+    content: '';
+    display: block;
+    background: #eee;
+    width: 1px;
+    height: 90%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    transform: translateY(-50%); }
+  .separator.left:before {
+    left: 0; }
+  .separator.right:before {
+    right: 0; }
+
 .card {
   box-shadow: none;
   font-size: 13px;
@@ -7937,8 +7954,8 @@ ion-tabs .tabs {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -7950,22 +7967,22 @@ ion-tabs .tabs {
     width: 100%;
     height: 30%; }
   .section-login article {
-    height: 40%;
+    height: 35%;
     padding: 0 20px; }
     .section-login article .button-pink {
       display: block;
       width: 100%; }
   .section-login footer {
     text-align: center;
-    height: 20%;
+    height: 25%;
     opacity: 0.3; }
     .section-login footer .text {
       margin: 0; }
     .section-login footer .logo-alt {
       position: relative;
       display: inline-block;
-      width: 70%;
-      height: 70%;
+      width: 60%;
+      height: 60%;
       background: url('../img/logo-alt.svg') center center no-repeat;
       background-size: auto 100%; }
 
@@ -8055,6 +8072,8 @@ ion-tabs .tabs {
     .section-events .card .attend-link.active, .section-events .card .comment-link.active, .section-event .card .attend-link.active, .section-event .card .comment-link.active, .section-post .card .attend-link.active, .section-post .card .comment-link.active {
       background: #db075e;
       color: #fff; }
+      .section-events .card .attend-link.active:before, .section-events .card .comment-link.active:before, .section-event .card .attend-link.active:before, .section-event .card .comment-link.active:before, .section-post .card .attend-link.active:before, .section-post .card .comment-link.active:before {
+        display: none; }
     .section-events .card .attend-link .icon, .section-events .card .comment-link .icon, .section-event .card .attend-link .icon, .section-event .card .comment-link .icon, .section-post .card .attend-link .icon, .section-post .card .comment-link .icon {
       margin-top: 15px;
       font-size: 30px; }
@@ -8111,3 +8130,23 @@ ion-tabs .tabs {
       background: #fff; }
     .comments .item-input-inset input {
       padding: 19px 5px; }
+
+.section-profile {
+  background: #eee; }
+  .section-profile .item-avatar {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0; }
+    .section-profile .item-avatar .profile-image {
+      position: relative;
+      width: 105px;
+      height: 105px;
+      max-width: none;
+      max-height: none; }
+  .section-profile .icon-cup {
+    font-size: 60px;
+    vertical-align: middle; }
+  .section-profile .index {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 30px; }

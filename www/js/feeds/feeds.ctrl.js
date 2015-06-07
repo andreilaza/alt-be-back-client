@@ -1,66 +1,12 @@
 angular.module('alt.feeds', [])
   .controller(
   'FeedsCtrl',
-  function ($scope, $state, $stateParams, $ionicModal, Auth) {
-    // Auth.check();
+  function ($scope, $state, $stateParams, $ionicModal, feeds, PostService, Auth) {
+    //Auth.check();
 
-    $scope.feeds = [
-      {
-        id: 1,
-        category: 'activity',
-        date: 1433601916803,
+    $scope.feeds = feeds;
+    console.log(feeds);
 
-        user: {
-          id: 3,
-          name: 'Andrei Demian',
-          avatar: 'http://lorempixel.com/g/50/50/',
-        },
-
-        action: {
-          id: 2,
-          input: '\"Jurnalul BUG Mafia\"',
-          label: 'is reading',
-          type: 'reading'
-        }
-      },
-      {
-        id: 1,
-        category: 'event',
-        date: 1433601916803,
-
-        user: {
-          id: 3,
-          name: 'Claudiu Filip',
-          avatar: 'http://lorempixel.com/g/50/50/',
-        },
-
-        action: {
-          id: 2,
-          title: 'Wine tasting',
-          type: 'event'
-        }
-      },
-      {
-        id: 1,
-        category: 'post',
-        date: 1433601916803,
-
-        comments: [],
-        user: {
-          id: 3,
-          name: 'Claudiu Filip',
-          avatar: 'http://lorempixel.com/g/50/50/'
-        },
-
-        action: {
-          id: 2,
-          input: 'Ce faci fetele? Te plimbi',
-          label: 'posted'
-
-        }
-      }
-
-    ];
 
     $scope.type = $stateParams.type;
     $scope.goToPost = function (id) {
@@ -108,7 +54,9 @@ angular.module('alt.feeds', [])
       // Execute action
     });
 
-    $scope.submitPost = function () {
 
-    };
+    $scope.submitPost = function (message) {
+      PostService.create(message, Auth.getUser()._id);
+      $scope.closeModal();
+    }
   });

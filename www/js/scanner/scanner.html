@@ -1,19 +1,13 @@
 <ion-view view-title="Scanner" class="page scanner">
     <ion-content class="padding content loading" ng-class="{'loading': loading}" >
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <button ng-click="openModal()">Open</button>
+
     </ion-content>
 </ion-view>
 <script id="my-modal.html" type="text/ng-template">
     <ion-modal-view>
-        <ion-header-bar>
-            <h1 class="title">My Modal title</h1>
-        </ion-header-bar>
         <ion-content>
-            Hello!
+            <h1 class="title">Congratulations</h1>
+            You have collected {{points}} points.
             <button ng-click="closeModal()">Close</button>
         </ion-content>
     </ion-modal-view>

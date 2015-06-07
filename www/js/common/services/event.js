@@ -8,6 +8,27 @@ angular.module('alt')
       }
     );
   })
-  .service('EventService', function (Event, $q) {
+  .service('EventService', function (Event, $http, constants) {
+    this.attend = function (eventId, memberId) {
+      return $http.post(constants.apiBaseUrl + '/events/go', {
+        eventId: eventId,
+        memberId: memberId
+      });
 
+
+    };
+    this.checkin = function (eventId, memberId) {
+      return $http.post(constants.apiBaseUrl + '/events/checkin', {
+        eventId: eventId,
+        memberId: memberId
+      });
+    };
+
+    this.addComment = function (eventId, message, memberId) {
+      return $http.post(constants.apiBaseUrl + '/post/comment', {
+        eventId: eventId,
+        message: message,
+        memberId: memberId
+      });
+    };
   });

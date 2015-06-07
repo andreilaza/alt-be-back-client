@@ -22,11 +22,12 @@
                     <b>{{event.attending.length}} members</b> attending <br/>
                     <b>{{event.points}} points</b> /  check-in
                 </div>
-                <a class="col-25 attend-link" ng-click="attend(event.id)" ng-class="{active: isAttending(event)}">
+                <a class="col-25 attend-link" ng-click="attend(event)" ng-class="{active: isAttending(event)}">
                     <i class="icon icon-attend" ></i>
                 </a>
             </div>
 
         </div>
+        <h1 ng-if="!events.length" class="text-center">There are no Events</h1>
     </ion-content>
 </ion-view>

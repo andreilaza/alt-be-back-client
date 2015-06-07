@@ -1,0 +1,29 @@
+.section-profile {
+    background: #eee;
+
+    .item-avatar {
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+
+        .profile-image {
+            position: relative;
+            width: 105px;
+            height: 105px;
+            max-width: none;
+            max-height: none;
+        }
+
+    }
+    .icon-cup {
+        font-size: 60px;
+        vertical-align: middle;
+    }
+    .index {
+
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 30px;
+    }
+
+}

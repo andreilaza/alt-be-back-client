@@ -123,12 +123,23 @@ angular.module('alt', [
       .state('tab.feeds.post', {
         url: '/post/:id',
         templateUrl: 'js/post/post.html',
-        controller: 'PostCtrl'
+        controller: 'PostCtrl',
+        resolve: {
+          post: function(Post, $stateParams) {
+            return Post.get({id:$stateParams.id}).$promise;
+          }
+        }
+
       })
       .state('tab.feeds.list', {
         url: '/feeds/:type',
         templateUrl: 'js/feeds/feeds.html',
-        controller: 'FeedsCtrl'
+        controller: 'FeedsCtrl',
+        resolve: {
+          feeds: function(Feed) {
+            return Feed.query().$promise;
+          }
+        }
       })
       .state('tab.feeds.event', {
         url: '/event/:id',

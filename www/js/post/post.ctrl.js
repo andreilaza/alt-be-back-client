@@ -1,48 +1,13 @@
 angular.module('alt.post', [])
   .controller(
   'PostCtrl',
-  function ($scope, $state, $stateParams, $ionicModal, Auth) {
+  function ($scope, $state, $stateParams, $ionicModal, post, PostService, Auth) {
     //Auth.check();
 
-    $scope.post = {
-      id: 1,
-      category: 'post',
-      date: 1433601916803,
+    $scope.post = post;
 
-      comments: [],
-      user: {
-        id: 3,
-          name: 'Claudiu Filip',
-          avatar: 'http://lorempixel.com/g/50/50/'
-      },
-      input: 'Ce faci fetele? Te plimbi',
-      label: 'posted'
+    console.log(post);
+    $scope.commentSubmit = function (message) {
+      PostService.addComment($scope.post._id, message, Auth.getUser()._id);
     };
-
-    $scope.post.comments = [
-      {
-        id: 21,
-        date: 1433626818487,
-        message: 'Ba, daa. De mult am asteptat asa ceva. Serios acuma!',
-        user : {
-          id: 3,
-          name: 'Claudiu Filip',
-          avatar: 'http://lorempixel.com/g/50/50/'
-
-        }
-      },
-      {
-        id: 21,
-        date: 1433626818487,
-        message: 'Ba, daa. De mult am asteptat asa ceva. Serios acuma!',
-        user : {
-          id: 3,
-          name: 'Claudiu Filip',
-          avatar: 'http://lorempixel.com/g/50/50/'
-
-        }
-      }
-    ];
-
-
   });

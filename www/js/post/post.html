@@ -12,7 +12,7 @@
                     <b>{{post.user.name}}</b>
                 </a>
                 <p class="action">
-                    <span class="action-input">{{post.input}}</span>
+                    <span class="action-input">{{post.message}}</span>
                     <span class="action-date">- {{post.date | timeDifference}}h ago</span>
                 </p>
 
@@ -31,6 +31,6 @@
 
         </div>
 
-        <comments source="post.comments"></comments>
+        <comments source="post.comments" submit="commentSubmit"></comments>
     </ion-content>
 </ion-view>

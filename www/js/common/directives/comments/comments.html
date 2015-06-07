@@ -22,9 +22,9 @@
 
             <div class=" item-input-inset">
                 <label class="item-input-wrapper">
-                    <input type="text" placeholder="Say something nice...">
+                    <input type="text" placeholder="Say something nice..." ng-model="newMessage">
                 </label>
-                <button class="button button-pink button-small">
+                <button ng-click="submit(newMessage)" class="button button-pink button-small">
                     Send
                 </button>
             </div>

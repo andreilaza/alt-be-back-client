@@ -1,37 +1,28 @@
 angular.module('alt.event', [])
   .controller(
   'EventCtrl',
-  function($scope, event, Auth) {
+  function($scope, event, EventService, Auth) {
     //Auth.check();
-    console.log(event);
+
     $scope.event = event;
 
-    $scope.event.comments = [
-      {
-        id: 21,
-        date: 1433626818487,
-        message: 'Ba, daa. De mult am asteptat asa ceva. Serios acuma!',
-        user : {
-          id: 3,
-          name: 'Claudiu Filip',
-          avatar: 'http://lorempixel.com/g/50/50/'
+    $scope.attend = function () {
+      EventService.attend(event._id, Auth.getUser()._id).then(function(data) {
 
-        }
-      },
-      {
-        id: 21,
-        date: 1433626818487,
-        message: 'Ba, daa. De mult am asteptat asa ceva. Serios acuma!',
-        user : {
-          id: 3,
-          name: 'Claudiu Filip',
-          avatar: 'http://lorempixel.com/g/50/50/'
+        event.attending.push(Auth.getUser()._id);
 
-        }
-      }
-    ];
-    $scope.attend = function (event) {
+      }, function(error) {
+        alert(JSON.stringify(error));
+      });
+    };
 
+    $scope.isAttending = function (event) {
+      var index = event.attending.indexOf(Auth.getUser()._id);
+      return index !== -1 ? true : false;
+    };
+
+    $scope.commentSubmit = function (message) {
+      EventService.addComment($scope.event._id, message, Auth.getUser()._id);
     };
 
   });

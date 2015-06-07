@@ -1,23 +1,24 @@
-<ion-view view-title="Profile">
+<ion-view view-title="Profile" class="section section-profile">
     <ion-content class="padding">
-        <h1>Profile</h1>
         <div class="card">
-            <div class="item item-text-wrap">
-                <div class="row">
-                    <a class="item item-thumbnail-left" href="#">
-                        <img src="http://lorempixel.com/g/50/50/">
-                        <h2>Pretty Hate Machine</h2>
-                        <p>Nine Inch Nails</p>
-                    </a>
-                </div>
-
+            <div class="item item-avatar">
+                <img class="profile-image" src="http://lorempixel.com/g/105/105/">
+                <h1>Bogdan Negrescu</h1>
+                <p>bogdan.negrescu@gmail.com</p>
+                <p>+40 740 804 794</p>
             </div>
+        </div>
+        <div class="card">
             <div class="item item-text-wrap" ng-click="goToRank(1)">
                 <div class="row">
-                    <div class="col"><i class="icon ion-trophy big-icon pull-left"></i></div>
-                    <div class="col"><span class="big-text">$100 Voucher</big></div>
+                    <div class="col">Your current
+                        ranking position </div>
+                    <div class="col separator left">
+                        <i class="icon icon-cup"></i>
+                        <span class="index">140</span>
+                    </div>
                 </div>
-                3 days remaining
+
             </div>
 
         </div>

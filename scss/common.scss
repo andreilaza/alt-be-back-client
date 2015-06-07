@@ -95,6 +95,27 @@ ion-tabs .tabs {
 .button {
     color: #fff;
 }
+.separator {
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        background: #eee;
+        width: 1px;
+        height: 90%;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    &.left:before {
+        left: 0;
+    }
+    &.right:before {
+        right: 0;
+    }
+}
 .card {
     box-shadow: none;
     font-size: 13px;

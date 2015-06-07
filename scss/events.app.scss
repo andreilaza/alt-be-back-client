@@ -31,6 +31,7 @@
                 background: #eee;
                 width: 1px;
                 height: 40px;
+
                 display: inline-block;
                 position: absolute;
                 left: 0;
@@ -44,6 +45,9 @@
             &.active {
                 background: $pink;
                 color: #fff;
+                &:before {
+                    display: none;
+                }
             }
             .icon {
                 margin-top: 15px;
