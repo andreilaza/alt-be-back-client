@@ -15,15 +15,15 @@
 
                 <img class="item-icon" ng-if="feed.category === 'activity'" ng-src="{{feed.action.image | fixeServerImages}}">
                 <img class="item-icon" ng-if="feed.category === 'event'" src="img/activities/event.svg">
-                <a ng-click="goToUser(feed.user._id)" class="title">
+                <span class="title">
                     <b>{{feed.user.name}}</b>
 
-                </a>
+                </span>
                 <p class="action">
                     <span class="action-label">{{feed.action.label}}</span>
                     <span class="action-input" ng-if="feed.category !== 'event'">{{feed.action.input}}</span>
                     <span class="action-input" ng-if="feed.category === 'event'">{{feed.action.title}}</span>
-                    <span class="action-date">- {{feed.date | timeDifference}}h ago</span>
+                    <span class="action-date">- {{feed.date | timeDifference}}</span>
                 </p>
                 <a class="event-link" ng-click="goToEvent(feed.action.id)" ng-if="feed.category === 'event'">
                     <i class="icon icon-event_details"></i> See Event Details

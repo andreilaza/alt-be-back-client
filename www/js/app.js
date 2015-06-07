@@ -133,6 +133,7 @@ angular.module('alt', [
       })
       .state('tab.feeds.list', {
         url: '/feeds/:type',
+        cache: false,
         templateUrl: 'js/feeds/feeds.html',
         controller: 'FeedsCtrl',
         resolve: {
@@ -179,6 +180,7 @@ angular.module('alt', [
 
       .state('tab.ranking.list', {
         url: '/ranking',
+        cache: false,
         templateUrl: 'js/ranking/ranking.html',
         controller: 'RankingCtrl',
         resolve: {
@@ -221,6 +223,7 @@ angular.module('alt', [
       })
       .state('tab.profile.ranking', {
         url: '/profile-ranking',
+        cache: false,
         templateUrl: 'js/ranking/ranking.html',
         controller: 'RankingCtrl'
       });

@@ -15,7 +15,13 @@ angular.module('alt')
     return function(value) {
       var a = moment(value);
       var b = moment(new Date());
-      return b.diff(a, 'hours');
+      var diff = b.diff(a, 'minutes');
+      if (diff === 0) {
+        return 'just now';
+      } else {
+        return diff + 'min ago';
+      }
+
     }
 
   });
