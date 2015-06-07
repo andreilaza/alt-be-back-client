@@ -9,6 +9,7 @@ angular.module('common.services.auth', [])
 
       if(type === 'facebook') {
         $http.get("https://graph.facebook.com/v2.2/me", { params: { access_token: $localStorage.accessToken, fields: "id, email,name,picture", format: "json" }}).then(function(result) {
+          alert(JSON.stringify(result))
             user = {
               credentials: response,
               member: {
@@ -16,7 +17,7 @@ angular.module('common.services.auth', [])
                 type: 'facebook',
                 email: result.data.email,
                 externalId: result.data.id,
-                avatar: result.data.picture.url | '',
+                avatar: result.data.picture.data.url || '',
                 name: result.data.name
               }
             }
@@ -50,7 +51,7 @@ angular.module('common.services.auth', [])
               type: 'google',
               email: result.data.email,
               externalId: result.data.id,
-              avatar: result.data.picture | '',
+              avatar: result.data.picture || '',
               name: result.data.name
             }
           }
@@ -109,7 +110,7 @@ angular.module('common.services.auth', [])
 
     function getUser() {
       return user || {
-          _id : '55741dc6256103c6242f8dfd'
+          _id : '557400c69895ab7f218b946e'
         };
     }
 
