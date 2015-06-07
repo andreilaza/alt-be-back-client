@@ -9,6 +9,7 @@ angular.module('common.services.auth', [])
 
       if(type === 'facebook') {
         $http.get("https://graph.facebook.com/v2.2/me", { params: { access_token: $localStorage.accessToken, fields: "id, email,name,picture", format: "json" }}).then(function(result) {
+          alert(JSON.stringify(result))
             user = {
               credentials: response,
               member: {
@@ -16,7 +17,7 @@ angular.module('common.services.auth', [])
                 type: 'facebook',
                 email: result.data.email,
                 externalId: result.data.id,
-                avatar: result.data.picture.url || '',
+                avatar: result.data.picture.data.url || '',
                 name: result.data.name
               }
             }
