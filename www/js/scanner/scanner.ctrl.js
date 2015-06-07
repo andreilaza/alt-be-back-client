@@ -46,8 +46,7 @@ angular.module('alt.scanner', [])
     };
 
     $scope.closeModal = function () {
-      $scope.modal.hide();
-      initScanner();
+      $state.go('tab.feeds.list');
     };
     //Cleanup the modal when we're done with it!
     $scope.$on('$destroy', function () {
