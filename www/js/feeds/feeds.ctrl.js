@@ -6,7 +6,7 @@ angular.module('alt.feeds', [])
 
     var announcement = feeds.splice(_.findIndex(feeds, {'category': 'announcement'}), 1)[0];
     feeds.unshift(announcement);
-    
+
     $scope.feeds = feeds;
 
 
@@ -56,7 +56,7 @@ angular.module('alt.feeds', [])
       // Execute action
     });
 
-
+    alert(JSON.stringify(Auth.getUser()));
     $scope.submitPost = function (message) {
       PostService.create(message, Auth.getUser()._id).then(function (data) {
         $scope.feeds = Feed.query();

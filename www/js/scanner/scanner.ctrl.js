@@ -17,12 +17,14 @@ angular.module('alt.scanner', [])
             .then(function(result) {
               $scope.scanResult = result.data;
               $scope.openModal();
+              Notification.success('Scan successful');
             }, function(error) {
               Notification.error(error);
             });
         }, function(error) {
           $scope.scanResult = error;
           $scope.openModal();
+          Notification.error('Scan failed');
         });
 
 

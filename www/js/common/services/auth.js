@@ -1,5 +1,5 @@
 angular.module('common.services.auth', [])
-  .factory('Auth', function($localStorage, $http, $state, Member) {
+  .factory('Auth', function($localStorage, $http, $state, Notification, Member) {
     var user;
 
     function login(type, response) {
@@ -105,7 +105,7 @@ angular.module('common.services.auth', [])
     }
 
     function errorHandler(error) {
-      alert(error);
+      Notification.error(error);
     }
 
     function getUser() {
