@@ -82,8 +82,10 @@ angular.module('common.services.auth', [])
 
     function check(redirect) {
       if($localStorage.hasOwnProperty("accessToken") !== true) {
-          errorHandler("Not signed in");
-          $state.go('login');
+          if(typeof(redirect) === 'undefined') {
+            errorHandler("Not signed in");
+            $state.go('login');
+          }
       } else {
         if(typeof(redirect) !== 'undefined') {
           Member.check({ accessKey: $localStorage.accessToken }, function(response) {
