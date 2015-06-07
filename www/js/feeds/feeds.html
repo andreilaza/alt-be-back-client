@@ -9,26 +9,36 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content>
-        <div class="item item-avatar"  ng-repeat="feed in feeds |  filter: categoryType">
-            <img ng-src="{{feed.user.avatar}}">
-            <img class="item-icon" ng-src="{{feed.action.image}}">
-            <a ng-click="goToUser(feed.user._id)" class="title">
-                <b>{{feed.user.name}}</b>
-                <span class="action-label">{{feed.action.label}}</span>
-            </a>
-            <p class="action">
-                <span class="action-input" ng-if="feed.category !== 'event'">{{feed.action.input}}</span>
-                <span class="action-input" ng-if="feed.category === 'event'">{{feed.action.title}}</span>
-                <span class="action-date">- {{feed.date | timeDifference}}h ago</span>
-            </p>
-            <a class="event-link" ng-click="goToEvent(feed.action.id)" ng-if="feed.category === 'event'">
-                <i class="icon icon-event_details"></i> See Event Details
-            </a>
-            <p ng-if="feed.category === 'post'">
-                <a class="post-link" ng-click="goToPost(feed.action.id)" >
-                    <i class="icon icon-comment"></i> Leave a Comment
+        <div class="item item-avatar {{feed.category}}"  ng-repeat="feed in feeds |  filter: categoryType">
+            <div ng-if="feed.category !== 'announcement'">
+                <img src="{{feed.user.avatar}}">
+                <img class="item-icon" ng-src="{{feed.action.image | fixeServerImages}}">
+                <a ng-click="goToUser(feed.user._id)" class="title">
+                    <b>{{feed.user.name}}</b>
+
                 </a>
-            </p>
+                <p class="action">
+                    <span class="action-label">{{feed.action.label}}</span>
+                    <span class="action-input" ng-if="feed.category !== 'event'">{{feed.action.input}}</span>
+                    <span class="action-input" ng-if="feed.category === 'event'">{{feed.action.title}}</span>
+                    <span class="action-date">- {{feed.date | timeDifference}}h ago</span>
+                </p>
+                <a class="event-link" ng-click="goToEvent(feed.action.id)" ng-if="feed.category === 'event'">
+                    <i class="icon icon-event_details"></i> See Event Details
+                </a>
+                <p ng-if="feed.category === 'post'">
+                    <a class="post-link" ng-click="goToPost(feed.action.id)" >
+                        <i class="icon icon-comment"></i> Leave a Comment
+                    </a>
+                </p>
+            </div>
+            <div ng-if="feed.category === 'announcement'">
+                <div class="logo-alt"></div>
+                <p class="action">
+                    <span class="action-input">{{feed.action.title}}</span>
+                    <span class="action-date">just now</span>
+                </p>
+            </div>
 
         </div>
 

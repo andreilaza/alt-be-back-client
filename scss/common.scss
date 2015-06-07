@@ -123,6 +123,14 @@ ion-tabs .tabs {
     border-radius: 0;
     margin: 5px 0 10px 0;
 }
+.logo-alt {
+    position: relative;
+    display: inline-block;
+    width: 60%;
+    height: 60%;
+    background: url('../img/logo-alt.svg') center center no-repeat;
+    background-size: auto 100%;
+}
 .loading .section {
 
     &:after {

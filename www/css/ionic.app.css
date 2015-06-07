@@ -7793,6 +7793,14 @@ ion-tabs .tabs {
   border-radius: 0;
   margin: 5px 0 10px 0; }
 
+.logo-alt {
+  position: relative;
+  display: inline-block;
+  width: 60%;
+  height: 60%;
+  background: url('../img/logo-alt.svg') center center no-repeat;
+  background-size: auto 100%; }
+
 .loading .section:after {
   content: '';
   position: fixed;
@@ -8005,20 +8013,28 @@ ion-tabs .tabs {
     opacity: 0.3; }
     .section-login footer .text {
       margin: 0; }
-    .section-login footer .logo-alt {
-      position: relative;
-      display: inline-block;
-      width: 60%;
-      height: 60%;
-      background: url('../img/logo-alt.svg') center center no-repeat;
-      background-size: auto 100%; }
 
 .section-feeds .item-avatar {
   border-color: #eee;
   position: relative; }
+  .section-feeds .item-avatar.announcement {
+    background: #3e021b;
+    position: relative; }
+    .section-feeds .item-avatar.announcement .logo-alt {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 75px;
+      height: 75px;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      transform: translateY(-50%); }
+    .section-feeds .item-avatar.announcement .action-input {
+      color: #fff; }
   .section-feeds .item-avatar .title {
     display: block;
-    padding-right: 30px; }
+    padding-right: 30px;
+    white-space: normal; }
   .section-feeds .item-avatar .item-icon {
     position: absolute;
     top: 15px;
@@ -8172,7 +8188,8 @@ ion-tabs .tabs {
       width: 105px;
       height: 105px;
       max-width: none;
-      max-height: none; }
+      max-height: none;
+      left: 0; }
   .section-profile .icon-cup {
     font-size: 60px;
     vertical-align: middle; }

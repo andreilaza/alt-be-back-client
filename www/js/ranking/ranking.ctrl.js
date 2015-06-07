@@ -1,7 +1,7 @@
 angular.module('alt.ranking', [])
   .controller(
   'RankingCtrl',
-  function($scope, $state, ranking, Auth) {
+  function($scope, $state, ranking, $timeout, $ionicScrollDelegate, Auth) {
 
     //Auth.check();
 
@@ -17,5 +17,6 @@ angular.module('alt.ranking', [])
         return true;
       }
       return false;
-    }
+    };
+
   });

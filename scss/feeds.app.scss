@@ -2,9 +2,32 @@
     .item-avatar {
         border-color: #eee;
         position: relative;
+
+        &.announcement {
+            background: $darkPink;
+
+            position: relative;
+
+
+            .logo-alt {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 75px;
+                height: 75px;
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                transform: translateY(-50%);
+            }
+            .action-input {
+                color: #fff;
+            }
+
+        }
         .title {
             display: block;
             padding-right: 30px;
+            white-space: normal;
         }
 
         .item-icon {

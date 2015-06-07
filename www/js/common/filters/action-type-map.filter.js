@@ -1,4 +1,9 @@
 angular.module('alt')
+  .filter('fixeServerImages', function(constants) {
+    return function(value) {
+      return constants.apiBaseUrl + '/' + value;
+    }
+  })
   .filter('actionTypeMap', function () {
     var map = {
       'boardgames'  : 'img/activities/boardgames.svg',

@@ -4,8 +4,10 @@ angular.module('alt.feeds', [])
   function ($scope, $state, $stateParams, $ionicModal, feeds, Feed, PostService, Auth) {
     //Auth.check();
 
+    var announcement = feeds.splice(_.findIndex(feeds, {'category': 'announcement'}), 1)[0];
+    feeds.unshift(announcement);
+    
     $scope.feeds = feeds;
-    console.log(feeds);
 
 
     $scope.type = $stateParams.type;
