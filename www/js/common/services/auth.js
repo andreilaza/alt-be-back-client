@@ -87,7 +87,6 @@ angular.module('common.services.auth', [])
       } else {
         if(typeof(redirect) !== 'undefined') {
           Member.check({ accessKey: $localStorage.accessToken }, function(response) {
-            errorHandler(JSON.stringify(response))
             if(response.status) {
               user = response.data;
               $state.go('tab.feeds.list');
