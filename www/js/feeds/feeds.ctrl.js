@@ -1,7 +1,7 @@
 angular.module('alt.feeds', [])
   .controller(
   'FeedsCtrl',
-  function ($scope, $state, $stateParams, $ionicModal, feeds, PostService, Auth) {
+  function ($scope, $state, $stateParams, $ionicModal, feeds, Feed, PostService, Auth) {
     //Auth.check();
 
     $scope.feeds = feeds;
@@ -56,7 +56,9 @@ angular.module('alt.feeds', [])
 
 
     $scope.submitPost = function (message) {
-      PostService.create(message, Auth.getUser()._id);
+      PostService.create(message, Auth.getUser()._id).then(function (data) {
+        $scope.feeds = Feed.query();
+      });
       $scope.closeModal();
     }
   });

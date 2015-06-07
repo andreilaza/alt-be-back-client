@@ -7,9 +7,9 @@
                 <p><b>Members Say</b></p>
                 <p>{{event.description}}</p>
                 <div class="item item-avatar"  ng-repeat="comment in comments">
-                    <img ng-src="{{comment.user.avatar}}">
-                    <a class="comment-title" ng-click="goToUser(comment.user.id)">
-                        <b>{{comment.user.name}}</b>
+                    <img ng-src="{{comment.avatar}}">
+                    <a class="comment-title" ng-click="goToUser(comment.user)">
+                        <b>{{comment.userName}}</b>
                         <span class="comment-date">- {{comment.date | timeDifference}}h ago</span>
                         <p class="comment-text">
                             {{comment.message}}
@@ -20,13 +20,13 @@
         </div>
     </div>
 
-            <div class=" item-input-inset">
-                <label class="item-input-wrapper">
-                    <input type="text" placeholder="Say something nice..." ng-model="newMessage">
-                </label>
-                <button ng-click="submit(newMessage)" class="button button-pink button-small">
-                    Send
-                </button>
-            </div>
+    <form name="commentForm" class="item-input-inset">
+        <label class="item-input-wrapper">
+            <input type="text" placeholder="Say something nice..." ng-model="newMessage">
+        </label>
+        <button type="submit" ng-click="submit(newMessage)" class="button button-pink button-small">
+            Send
+        </button>
+    </form>
 
 </div>

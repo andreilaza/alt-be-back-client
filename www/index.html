@@ -8,6 +8,7 @@
 
 
     <!-- compiled css output -->
+    <link rel="stylesheet" href="lib/angular-ui-notification/dist/angular-ui-notification.min.css">
     <link href="fonts/stylesheet.css" rel="stylesheet">
     <link href="fonts/icomoon/style.css" rel="stylesheet">
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -19,6 +20,7 @@
     <script src="lib/angular-resource/angular-resource.js"></script>
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="lib/ngstorage/ngStorage.js"></script>
+    <script src="lib/angular-ui-notification/src/angular-ui-notification.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -44,6 +46,7 @@
     <script src="js/common/services/event.js"></script>
     <script src="js/common/services/feed.js"></script>
     <script src="js/common/services/member.js"></script>
+    <script src="js/common/services/ranking.js"></script>
     <script src="js/common/services/post.js"></script>
     <script src="js/common/services/comment.js"></script>
     <script src="js/common/filters/action-type-map.filter.js"></script>
@@ -51,9 +54,6 @@
   </head>
 
   <body ng-app="alt">
-
-
-
     <!--
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also

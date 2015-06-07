@@ -7819,8 +7819,31 @@ ion-tabs .tabs {
     color: #fff;
     background: #3e021b; }
 
-.page.scanner .content.loading {
+.section-scanner .content.loading {
   background: url('../img/preloader.gif') center center no-repeat; }
+
+.section-splash {
+  text-align: center;
+  background: #eee;
+  position: relative;
+  height: 100%; }
+  .section-splash .card, .section-splash .scroll {
+    height: 100%; }
+  .section-splash .card .icon {
+    margin: 35px 0;
+    font-size: 100px; }
+  .section-splash .card .subtitle {
+    padding: 0;
+    font-size: 14px; }
+  .section-splash .card .title {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 0; }
+  .section-splash .card .button-pink {
+    margin: 20px 0; }
+
+.modal-wrapper {
+  height: 100%; }
 
 .gold {
   color: #FFD700; }
@@ -7848,7 +7871,7 @@ ion-tabs .tabs {
   .section-ranking .top-card .icon-cup {
     font-size: 70px; }
   .section-ranking .list {
-    padding: 5px 10px;
+    padding: 0 10px;
     border: none;
     background: #fff; }
     .section-ranking .list .item {
@@ -7860,10 +7883,12 @@ ion-tabs .tabs {
         color: #fff;
         background: #3e021b;
         border-color: #3e021b;
-        border-left: solid 10px #3e021b;
-        border-right: solid 10px #3e021b;
         margin-left: -10px;
-        margin-right: -10px; }
+        margin-right: -10px;
+        padding-left: 60px;
+        padding-right: 20px; }
+        .section-ranking .list .item.active .icon {
+          left: 15px; }
     .section-ranking .list .item:last-child {
       border: none; }
   .section-ranking .item .name, .section-ranking .item .points, .section-ranking .item .index {
@@ -7877,6 +7902,8 @@ ion-tabs .tabs {
   .section-ranking .item .icon {
     left: 7px; }
 
+.section-tour .slider {
+  height: 100%; }
 .section-tour .tour {
   position: relative;
   text-align: center;
@@ -7900,10 +7927,10 @@ ion-tabs .tabs {
     position: relative;
     display: block;
     width: 100%;
-    min-height: 40%; }
+    height: 35%; }
   .section-tour .tour article {
     background: #fff;
-    height: 60%;
+    height: 65%;
     padding: 0 20px; }
   .section-tour .tour .title {
     margin: 30px 0; }
@@ -8029,6 +8056,9 @@ ion-tabs .tabs {
   .section-add-post .title {
     margin: 5px 0 20px; }
   .section-add-post textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     width: 100%;
     height: 100px;
     border: solid 1px #eee;
