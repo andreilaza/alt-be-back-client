@@ -16,9 +16,11 @@
         height: 100%;
     }
     .card {
-        .icon {
+        .scan-icon {
             margin: 35px 0;
-            font-size: 100px;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
         }
         .subtitle {
             padding: 0;

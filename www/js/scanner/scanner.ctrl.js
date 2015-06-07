@@ -8,13 +8,14 @@ angular.module('alt.scanner', [])
       $cordovaBarcodeScanner
         .scan()
         .then(function(barcodeData) {
+
           if (barcodeData.cancelled === 1) {
             $state.go('tab.feeds.list');
             return;
           }
           return EventService.checkin(barcodeData.text, Auth.getUser()._id)
-            .then(function(data) {
-              $scope.scanResult = data;
+            .then(function(result) {
+              $scope.scanResult = result.data;
               $scope.openModal();
             }, function(error) {
               Notification.error(error);

@@ -7837,9 +7837,11 @@ ion-tabs .tabs {
   height: 100%; }
   .section-splash .card, .section-splash .scroll {
     height: 100%; }
-  .section-splash .card .icon {
+  .section-splash .card .scan-icon {
     margin: 35px 0;
-    font-size: 100px; }
+    width: 100px;
+    height: 100px;
+    display: inline-block; }
   .section-splash .card .subtitle {
     padding: 0;
     font-size: 14px; }
@@ -8059,6 +8061,8 @@ ion-tabs .tabs {
   .section-feeds .item-avatar .action {
     overflow: visible !important;
     white-space: normal !important; }
+  .section-feeds .item-avatar .not-announcement .action {
+    padding-right: 30px; }
   .section-feeds .item-avatar .comment-label {
     color: #3d3d3d;
     margin-right: 10px; }
@@ -8094,6 +8098,8 @@ ion-tabs .tabs {
     margin-bottom: 0; }
   .section-events .card .subtitle, .section-event .card .subtitle, .section-post .card .subtitle {
     margin-bottom: 0; }
+  .section-events .card .sub-subtitle, .section-event .card .sub-subtitle, .section-post .card .sub-subtitle {
+    margin: -5px 0; }
   .section-events .card .icon-time, .section-events .card .icon-location, .section-event .card .icon-time, .section-event .card .icon-location, .section-post .card .icon-time, .section-post .card .icon-location {
     font-size: 30px;
     margin-left: -8px;

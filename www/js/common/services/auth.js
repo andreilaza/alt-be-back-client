@@ -110,7 +110,7 @@ angular.module('common.services.auth', [])
 
     function getUser() {
       return user || {
-          _id : '557400c69895ab7f218b946e'
+          _id : '55742c1caffb2812792e7d71'
         };
     }
 

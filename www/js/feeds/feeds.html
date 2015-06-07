@@ -10,9 +10,11 @@
     </ion-nav-bar>
     <ion-content>
         <div class="item item-avatar {{feed.category}}"  ng-repeat="feed in feeds |  filter: categoryType">
-            <div ng-if="feed.category !== 'announcement'">
-                <img src="{{feed.user.avatar}}">
-                <img class="item-icon" ng-src="{{feed.action.image | fixeServerImages}}">
+            <img src="{{feed.user.avatar}}" ng-if="feed.category !== 'announcement'">
+            <div ng-if="feed.category !== 'announcement'" class="not-announcement">
+
+                <img class="item-icon" ng-if="feed.category === 'activity'" ng-src="{{feed.action.image | fixeServerImages}}">
+                <img class="item-icon" ng-if="feed.category === 'event'" src="img/activities/event.svg">
                 <a ng-click="goToUser(feed.user._id)" class="title">
                     <b>{{feed.user.name}}</b>
 
@@ -32,7 +34,7 @@
                     </a>
                 </p>
             </div>
-            <div ng-if="feed.category === 'announcement'">
+            <div ng-if="feed.category === 'announcement'" class="announcement">
                 <div class="logo-alt"></div>
                 <p class="action">
                     <span class="action-input">{{feed.action.title}}</span>

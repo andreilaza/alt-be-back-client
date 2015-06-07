@@ -5,9 +5,10 @@
 
     <ion-content class="padding">
         <div class="card">
-            <i class="icon icon-comment"></i>
+
+            <img class="scan-icon" src="{{scanResult.image | fixeServerImages}}" />
             <p class="subtitle">You just got yourself</p>
-            <h2 class="title">100 points</h2>
+            <h2 class="title">{{scanResult.points}} points</h2>
             <button ng-click="closeModal()" class="button button-pink">Sweet!</button>
         </div>
     </ion-content>

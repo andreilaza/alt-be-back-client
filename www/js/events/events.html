@@ -8,13 +8,17 @@
                         <h2 class="title">{{event.title}}</h2>
                         <p class="subtitle">
                             <i class="icon icon-time"></i>{{event.startDate | eventFormatDate : event.startDate}}
+
+                        </p>
+                        <p ng-if="event.location" class="sub-subtitle">
+                            <i class="icon icon-location"></i>{{event.location}}
                         </p>
                     </a>
                 </div>
             </div>
 
             <div class="item-image">
-                <img src="http://lorempixel.com/g/600/400">
+                <img src="{{event.image | fixeServerImages}}">
             </div>
 
             <div class="row no-padding">
