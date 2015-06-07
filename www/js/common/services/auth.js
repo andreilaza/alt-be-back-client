@@ -16,7 +16,7 @@ angular.module('common.services.auth', [])
                 type: 'facebook',
                 email: result.data.email,
                 externalId: result.data.id,
-                avatar: result.data.picture.url | '',
+                avatar: result.data.picture.url || '',
                 name: result.data.name
               }
             }
@@ -50,7 +50,7 @@ angular.module('common.services.auth', [])
               type: 'google',
               email: result.data.email,
               externalId: result.data.id,
-              avatar: result.data.picture | '',
+              avatar: result.data.picture || '',
               name: result.data.name
             }
           }
